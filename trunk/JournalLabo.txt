@@ -1,0 +1,31 @@
+Journal De travail Bachelor :
+
+Mardi 25 Mai :
+
+Début du travaille de bachelor. J'ai tout d'abord modifié quelque fonction de la version de démonstration, pour le festival robotique du week end (29/30 mai).
+Certaine fonction n'étais pas bien ajusté, et les codes des nao Tag ne correspondait plus. Réalisation d'une liste d'objectifs. J'ai essayé de faire en sorte que le Nao se dirrige sur une Nao Mark, a l'aide de la camera du bas, en tournant la téte jusque à ce qu'il voie la marque efface.
+
+Mercredi 26 Mai :
+
+Une nouvelle version de l'OS de Nao est sorti (1.6.13)  Je tente donc de l'installé, pour voir si elle marche contrairement à la 1.6. J'ai flashé la clé a l'aide du Nao Flasher sous windows XP. Apres un long reboot, il démarre. Probléme, la version de Choregraphe pour Mac OS n'a pas été encore uploadé. Et la version sous windows XP ne marche pas. 
+PV avec M. Amiguet, j'ai réparti le projet en plusieurs étapes. J'ai mise a jours choregraphe, j'ai du remodifié la version de démonstration pour qu'elle soit compatible avec la version 1.6, le plus gros probléme se situe au niveau des signaux, qui on changé, Le sonar n'envoie plus un signal contenant les information sur les sonar droit et gauche, mais un signal par coté. Des probléme plus hasardeux son apparue, défois le Nao plante, et défois il a l'aire overbooké de signaux pour la reconnaissance facial
+
+Jeudi 27 Mai : 
+
+J'ai commencé à réaliser le processus afin que le robot avance jusque a une nao Mark au sol. La premiére partie se base uniquement sur la camera du bas, et il faut que la Mark soit dans le champs de vision. J'ai essayé d'utilisé les singaux, puis finalement j'ai utilisé un ALMemory pour chercher la valeur, le tout dans une boucle while. Il faut absolument pouvoir arreter cette boucle, si on met un while True, la boucle ne s'arrete jamais, méme si on arréte le programme, et tournera toujours, méme avec un autre programme. On arrete donc la boucle quand la Nao Mark est centré. Pour marcher jusque a la mark, on tourne la téte en fonction du positionement, tourné vers la gauche ou droite, une fois qu'on et en face, on récupére l'angle de la téte du Nao, et on éfféctue une rotation de nao avec cette angele. Une fois en face je l'ai fait avancé tant que Nao voie une mark. certaine fois la mark n'est plus detecté, pendant 1 secondes, c'est pourquois on vérifie que 3 fois de suite si la mark est vraiment plus la. Le robot s'arreéte envirosn sur la naoMark (un peu devant). 
+L'autre étapes consiste a faire regardé Nao dans son champs de vision (uniquement avec la téte), cette fois si je fait partire la téte du milieu, et si il ne voie rien directement, il tourne la téte vers la gauche, jusque au bout, si tjr rien n'est trouvé, on la tourne vers la droite, jsuque au bout. un probléme arrive lorsque que la téte est dans une diréction, je n'arrive plus a tourné la téte de l'autre coté. Pour ca je regarde si l'angle actuelle est presque au bout de l'angle max (2 rad). A priori le robot n'a pas le temps de finir son mouvement de rotation (vu que c'est dans une boucle while), alors que je lui demande déja l'angle, pour le teste, du coup le teste est faux il change l'angle, mais n'effectue pas encore la rotation, car l'autre n'est pas fini. J'ai trouvé une piste, il faut mettre un sleep pour attendre que le mouvement finisse. Il me reste a faire en sorte que le mouvement soit optimal et le plus rapide possible. Et aussi qu'il ne tourne la téte totalement que une fois.
+
+Vendredi 28 Mai : Mon programme est encore un peu hasardeux, et défois des gros érreur de direction sont faite. Il y a des probléme avec le GetData, qui ne récupére pas assé vite la derniére valeurs. J'ai du préparé le nao pour le festival de robotic, J'ai donc remis la version 1.3, car elle chauffe moin rapidement, j'ai du arreter vers midi, car le robot étais en 1.3 et déja pret.
+
+FESTIVAL DE ROBOT ->OK
+
+Lundi 31 Mai
+
+PV avec M. Amiguet, j'ai remis Nao a jours, j'ai éfféctué des messure pour connaitre l'angle de la camera par rapport au sol : dans la position inital (position camera-sol : 45.5cm, pour un distance de 41.2, le deltax = 0) l'angle dest donc de 42.1 degrés.
+
+Mardi 1 juin
+Le calcule de la distance fonctionne, j'ai aussi pu remplacé la fonction de recherche affiné, en mettant directmeent le delta x comme ange de rotation de la téte. Cela fait gagner du temps. Certain moment, le robot n'éfféctue pas la bonne rotation, ou dévie. La distance est bian calculé et le robot s'arrete presque toujours sur la marque, a 3 cm de précision environs.
+J'ai refactorisé le code pour une meilleur lecture.
+
+Mercredi 2 juin
+Réalisation du mouvement pour se baisser et ramaser un objet, on a un petit angle pour tenter de ramasé l'objet. un cube risque d'étre trop petit et de partir quand la main se serre. Réalisation du mouvement pour se lever. J'ai utiliser le recorder de mouvement. Le mode interactife, qui permet en appuyant sur les bumper de bloquer les moteur, ou d'enregister les positions. Afin de pouvoir prendre avec précision l'objet, je devrais utiliser de l'analyse d'image, apres demande sur le forum, il faudrait utilisé des module c++ pour OpenCV, car c'est plus rapide. Cela est un nouveauté pour moi, j'ai du installer plusieur pré-requsi pour pouvoir utiliser les module C++ (probléme PyQt ..)

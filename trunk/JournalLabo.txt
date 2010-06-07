@@ -36,3 +36,6 @@ Finalement je décide d'utiliser un ordinateur sous linux. La programation d'un 
 Vendredi 4 Juin : 
 
 Malade ...
+
+Lundi 5 juin : 
+Arrivé Midi : Création de la gestion des signes multiples. Probléme, la nao ne va pas a la marque, raison indeterminé pour le moment. Bug, il trouve bcp de valeures inchoérente

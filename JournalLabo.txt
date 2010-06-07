@@ -29,3 +29,10 @@ J'ai refactorisé le code pour une meilleur lecture.
 
 Mercredi 2 juin
 Réalisation du mouvement pour se baisser et ramaser un objet, on a un petit angle pour tenter de ramasé l'objet. un cube risque d'étre trop petit et de partir quand la main se serre. Réalisation du mouvement pour se lever. J'ai utiliser le recorder de mouvement. Le mode interactife, qui permet en appuyant sur les bumper de bloquer les moteur, ou d'enregister les positions. Afin de pouvoir prendre avec précision l'objet, je devrais utiliser de l'analyse d'image, apres demande sur le forum, il faudrait utilisé des module c++ pour OpenCV, car c'est plus rapide. Cela est un nouveauté pour moi, j'ai du installer plusieur pré-requsi pour pouvoir utiliser les module C++ (probléme PyQt ..)
+
+Jeudi 3 juin : 
+Finalement je décide d'utiliser un ordinateur sous linux. La programation d'un module est plus simple, les outils sont mieux intégrer, et je n'ais pas de conflit 64 bits. J'ai donc installer un post sous linux, et installer l'ide choregraphe. Le probléme de la déviation du nao est un probléme matériele d'apres le constructeur, je devrais donc trouvé une solution.
+
+Vendredi 4 Juin : 
+
+Malade ...

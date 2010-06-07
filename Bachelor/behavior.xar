@@ -93,8 +93,8 @@
                                 <bitmap>media/images/box/box-diagram.png</bitmap>
                             </Bitmaps>
                             <plugin></plugin>
-                            <x>50</x>
-                            <y>267</y>
+                            <x>155</x>
+                            <y>289</y>
                             <script>
                                 <content>
                                     <![CDATA[import math
@@ -118,7 +118,7 @@ class MyClass(GeneratedClass):
         pass
 
     def searchMarkPrecision(self,p):
-        xPosMark = p[1][0][0][1]
+        xPosMark = p[0][0][1]
         self.log(str(xPosMark))
         self.loop = False
         ALMotion.changeAngles("HeadYaw", xPosMark, 0.1)
@@ -136,13 +136,25 @@ class MyClass(GeneratedClass):
         ALMotion.changeAngles("HeadYaw",self.rotateHeadAngle,0.2)
         time.sleep(0.5)   
 
-    def onInput_onStart(self):
+    def onInput_onStart(self, word):
+        if word == "oui":
+            ref = 108
+        elif word == "non":
+            ref = 119
+        else :
+            ref = 0
+        self.log(word+str(ref))
         while self.loop:
             self.log("TEST")
             time.sleep(0.1)    
             p = ALMemory.getData("LandmarkDetected", 0)
             if len(p)>0:
-               self.searchMarkPrecision(p)
+                for i in p[1]:
+                    self.log("Mark : " )
+                    self.log(i[1][0])
+                    if i[1] == ref :
+                       self.log("OK")
+                       #self.searchMarkPrecision(i)
             else:
                self.searchMark()
 
@@ -165,7 +177,7 @@ class MyClass(GeneratedClass):
                             </Input>
                             <Input>
                                 <name>onStart</name>
-                                <type>1</type>
+                                <type>3</type>
                                 <type_size>1</type_size>
                                 <nature>2</nature>
                                 <inner>0</inner>
@@ -201,332 +213,17 @@ class MyClass(GeneratedClass):
                             </Output>
                         </Box>
                         <Box>
-                            <name>NaoMark</name>
-                            <robot></robot>
-                            <id>2</id>
-                            <tooltip>Start naoMark extractor and subscribe on mark value</tooltip>
-                            <bitmap_expanded>1</bitmap_expanded>
-                            <Bitmaps>
-                                <bitmap>media/images/box/interaction/uramark.png</bitmap>
-                            </Bitmaps>
-                            <plugin></plugin>
-                            <x>82</x>
-                            <y>143</y>
-                            <script>
-                                <content>
-                                    <![CDATA[class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self)
-
-    def onLoad(self):
-        #~ puts code for box initialization here
-        pass
-
-    def onUnload(self):
-        #~ puts code for box cleanup here
-        pass
-
-    def onInput_onStart(self):
-        self.gotoAndStop(1)
-        pass
-
-    def onInput_onStop(self):
-        self.onUnload()
-        self.onStopped()]]>
-</content>
-                                <language>4</language>
-                            </script>
-                            <Input>
-                                <name>onLoad</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>0</nature>
-                                <inner>1</inner>
-                                <tooltip>Signal sent when diagram is loaded.</tooltip>
-                                <id>1</id>
-                            </Input>
-                            <Input>
-                                <name>onStart</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>2</nature>
-                                <inner>0</inner>
-                                <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
-                                <id>2</id>
-                            </Input>
-                            <Input>
-                                <name>onStop</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>3</nature>
-                                <inner>0</inner>
-                                <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
-                                <id>3</id>
-                            </Input>
-                            <Input>
-                                <name>LandmarkDetected</name>
-                                <type>0</type>
-                                <type_size>1</type_size>
-                                <nature>4</nature>
-                                <stm_value_name>LandmarkDetected</stm_value_name>
-                                <inner>1</inner>
-                                <tooltip>Connected to ALMemory. Will be stimulated every time the value subscribed to changes, respecting the refresh period.</tooltip>
-                                <id>4</id>
-                            </Input>
-                            <Output>
-                                <name>onStopped</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>1</nature>
-                                <inner>0</inner>
-                                <tooltip>Signal sent when box behavior is finished.</tooltip>
-                                <id>5</id>
-                            </Output>
-                            <Output>
-                                <name>onMarkDetected</name>
-                                <type>2</type>
-                                <type_size>1</type_size>
-                                <nature>2</nature>
-                                <inner>0</inner>
-                                <tooltip>A mark has been detected !&#x0A;Send the mark&apos;s number !</tooltip>
-                                <id>6</id>
-                            </Output>
-                            <Output>
-                                <name>onNoMark</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>2</nature>
-                                <inner>0</inner>
-                                <tooltip>No mark ! :-(</tooltip>
-                                <id>7</id>
-                            </Output>
-                            <Timeline>
-                                <fps>10</fps>
-                                <resources_acquisition>0</resources_acquisition>
-                                <size>300</size>
-                                <enable>0</enable>
-                                <start_frame>0</start_frame>
-                                <end_frame>-1</end_frame>
-                                <Waveforms />
-                                <scale>10</scale>
-                                <watches />
-                                <BehaviorLayer>
-                                    <name>behavior_layer1</name>
-                                    <mute>0</mute>
-                                    <BehaviorKeyframe>
-                                        <name>keyframe1</name>
-                                        <index>1</index>
-                                        <bitmap></bitmap>
-                                        <Diagram>
-                                            <scale>-1</scale>
-                                            <Box>
-                                                <name>getMarksList</name>
-                                                <robot></robot>
-                                                <id>1</id>
-                                                <tooltip>Returns the list of marks detected (empty if no mark)</tooltip>
-                                                <bitmap_expanded>1</bitmap_expanded>
-                                                <Bitmaps>
-                                                    <bitmap>media/images/box/box-script.png</bitmap>
-                                                </Bitmaps>
-                                                <plugin></plugin>
-                                                <x>139</x>
-                                                <y>75</y>
-                                                <script>
-                                                    <content>
-                                                        <![CDATA[class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self)
-
-    def onUnload(self):
-        #puts code for box cleanup here
-        pass
-
-    def onInput_onStart(self, p):
-        markIDs = []
-        # Generic Extractor output format:
-        # p = [ [timeStampMaj, timeStampMin], [ tag0, tag1, ... tagN] ] with tag = [ shapeInfo, moreInfo ]
-        if(len(p) > 0):
-            markInfoArray = p[1]
-            self.log(str(markInfoArray))
-            
-            
-            for markInfo in markInfoArray:
-                moreInfo = markInfo[1]
-                # moreInfo = [ landmarkID ]
-                markIDs.append(moreInfo[0])
-                
-        self.onStopped(markIDs)
-
-    def onInput_onStop(self):
-        pass]]>
-</content>
-                                                    <language>4</language>
-                                                </script>
-                                                <Input>
-                                                    <name>onLoad</name>
-                                                    <type>1</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>0</nature>
-                                                    <inner>1</inner>
-                                                    <tooltip>Signal sent when diagram is loaded.</tooltip>
-                                                    <id>1</id>
-                                                </Input>
-                                                <Input>
-                                                    <name>onStart</name>
-                                                    <type>0</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>2</nature>
-                                                    <inner>0</inner>
-                                                    <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
-                                                    <id>2</id>
-                                                </Input>
-                                                <Input>
-                                                    <name>onStop</name>
-                                                    <type>1</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>3</nature>
-                                                    <inner>0</inner>
-                                                    <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
-                                                    <id>3</id>
-                                                </Input>
-                                                <Output>
-                                                    <name>onStopped</name>
-                                                    <type>0</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>1</nature>
-                                                    <inner>0</inner>
-                                                    <tooltip>Signal sent when box behavior is finished.</tooltip>
-                                                    <id>4</id>
-                                                </Output>
-                                            </Box>
-                                            <Box>
-                                                <name>processList</name>
-                                                <robot></robot>
-                                                <id>2</id>
-                                                <tooltip>This box will process the list. It will return a mark ID if at least one has been detected, or the noMark output if no mark has been detected. &#x0A;Note that the ID output will only be stimulated once, as long as the ID does not change. It allows a very easy integration from the upper level.</tooltip>
-                                                <bitmap_expanded>1</bitmap_expanded>
-                                                <Bitmaps>
-                                                    <bitmap>media/images/box/interaction/uramark.png</bitmap>
-                                                </Bitmaps>
-                                                <plugin></plugin>
-                                                <x>332</x>
-                                                <y>94</y>
-                                                <script>
-                                                    <content>
-                                                        <![CDATA[class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self)
-        
-    def onLoad(self):
-        self.nNumLastDetected = -1;
-        
-    def onUnload(self):
-        #puts code for box cleanup here
-        pass
-
-    def onInput_onStart(self, p):
-        if(len(p) == 0):
-            self.nNumLastDetected = -1
-            self.onNoMark();
-        else:
-            if(self.nNumLastDetected != p[0]):
-                #only stimulate output if a mark wasn't detected before !
-                self.nNumLastDetected = p[0]
-                self.onMarkDetected( self.nNumLastDetected )
-            
-    def onInput_onStop(self):
-        pass]]>
-</content>
-                                                    <language>4</language>
-                                                </script>
-                                                <Input>
-                                                    <name>onLoad</name>
-                                                    <type>1</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>0</nature>
-                                                    <inner>1</inner>
-                                                    <tooltip>Signal sent when diagram is loaded.</tooltip>
-                                                    <id>1</id>
-                                                </Input>
-                                                <Input>
-                                                    <name>onStart</name>
-                                                    <type>0</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>2</nature>
-                                                    <inner>0</inner>
-                                                    <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
-                                                    <id>2</id>
-                                                </Input>
-                                                <Input>
-                                                    <name>onStop</name>
-                                                    <type>1</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>3</nature>
-                                                    <inner>0</inner>
-                                                    <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
-                                                    <id>3</id>
-                                                </Input>
-                                                <Output>
-                                                    <name>onMarkDetected</name>
-                                                    <type>2</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>2</nature>
-                                                    <inner>0</inner>
-                                                    <tooltip>a mark has been detected !&#x0A;Send the mark&apos;s number !</tooltip>
-                                                    <id>4</id>
-                                                </Output>
-                                                <Output>
-                                                    <name>onNoMark</name>
-                                                    <type>1</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>2</nature>
-                                                    <inner>0</inner>
-                                                    <tooltip>No mark detected :-(</tooltip>
-                                                    <id>5</id>
-                                                </Output>
-                                            </Box>
-                                            <Link>
-                                                <inputowner>0</inputowner>
-                                                <indexofinput>7</indexofinput>
-                                                <outputowner>2</outputowner>
-                                                <indexofoutput>5</indexofoutput>
-                                            </Link>
-                                            <Link>
-                                                <inputowner>0</inputowner>
-                                                <indexofinput>6</indexofinput>
-                                                <outputowner>2</outputowner>
-                                                <indexofoutput>4</indexofoutput>
-                                            </Link>
-                                            <Link>
-                                                <inputowner>1</inputowner>
-                                                <indexofinput>2</indexofinput>
-                                                <outputowner>0</outputowner>
-                                                <indexofoutput>4</indexofoutput>
-                                            </Link>
-                                            <Link>
-                                                <inputowner>2</inputowner>
-                                                <indexofinput>2</indexofinput>
-                                                <outputowner>1</outputowner>
-                                                <indexofoutput>4</indexofoutput>
-                                            </Link>
-                                        </Diagram>
-                                    </BehaviorKeyframe>
-                                </BehaviorLayer>
-                                <ActuatorList />
-                            </Timeline>
-                        </Box>
-                        <Box>
                             <name>Pick</name>
                             <robot></robot>
-                            <id>8</id>
+                            <id>3</id>
                             <tooltip>Enter tooltip here</tooltip>
                             <bitmap_expanded>1</bitmap_expanded>
                             <Bitmaps>
                                 <bitmap>media/images/box/box-diagram.png</bitmap>
                             </Bitmaps>
                             <plugin></plugin>
-                            <x>162</x>
-                            <y>472</y>
+                            <x>145</x>
+                            <y>456</y>
                             <script>
                                 <content>
                                     <![CDATA[]]>
@@ -2311,15 +2008,15 @@ class MyClass(GeneratedClass):
                         <Box>
                             <name>WalkTo</name>
                             <robot></robot>
-                            <id>3</id>
+                            <id>4</id>
                             <tooltip>This Box is for make NAO walk to a point relative to his current location &#x0A;&#x0A;Box Extra Parameter the new position:&#x0A;X for front/rear motion (metre)&#x0A;Y for lateral motion (meter)&#x0A;Theta for rotation (radian)&#x0A;&#x0A;Note:&#x0A;Default is walk straight 20cm</tooltip>
                             <bitmap_expanded>1</bitmap_expanded>
                             <Bitmaps>
                                 <bitmap>media/images/box/movement/walk_forward.png</bitmap>
                             </Bitmaps>
                             <plugin></plugin>
-                            <x>185</x>
-                            <y>255</y>
+                            <x>285</x>
+                            <y>275</y>
                             <script>
                                 <content>
                                     <![CDATA[class MyClass(GeneratedClass):
@@ -2451,7 +2148,7 @@ class MyClass(GeneratedClass):
                         <Box>
                             <name>SelectCam</name>
                             <robot></robot>
-                            <id>4</id>
+                            <id>5</id>
                             <tooltip>Change the currently used camera.</tooltip>
                             <bitmap_expanded>1</bitmap_expanded>
                             <Bitmaps>
@@ -2526,106 +2223,15 @@ class MyClass(GeneratedClass):
                         <Box>
                             <name>Wait</name>
                             <robot></robot>
-                            <id>11</id>
+                            <id>7</id>
                             <tooltip>The wait that can be stopped immediately and reset at any time.&#x0A;&#x0A;Stopping the box won&apos;t output a signal.&#x0A;*** ref box in: ./4_localize/Time/Wait/ExampleWait.xar ***&#x0A;*** last modification date(svn): Version it! ***</tooltip>
                             <bitmap_expanded>1</bitmap_expanded>
                             <Bitmaps>
                                 <bitmap>media/images/box/wait.png</bitmap>
                             </Bitmaps>
                             <plugin></plugin>
-                            <x>568</x>
-                            <y>421</y>
-                            <script>
-                                <content>
-                                    <![CDATA[import threading # opkg install python-threading
-class MyClass(GeneratedClass):
-  def __init__(self):
-    GeneratedClass.__init__(self)
-    self.tb = False;
-  
-  def onUnload(self):
-    self.onInput_onStop();
-    
-  def triggerOutput( self, rPeriod = 1 ):
-    self.timerOutput();
-    self.onInput_onStop(); # to clean everything
-  
-  def startTimer( self, rPeriod = 1 ):
-    if( self.tb ):
-      self.tb.cancel();
-    self.tb = threading.Timer( rPeriod, self.triggerOutput, [rPeriod] );
-    self.tb.start();
-
-  def onInput_onStart(self):
-    self.startTimer( self.getParameter("timeout") );
-  
-  def onInput_onStop(self):
-    if( self.tb ):
-      self.tb.cancel();
-      self.tb = False;]]>
-</content>
-                                <language>4</language>
-                            </script>
-                            <Input>
-                                <name>onLoad</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>0</nature>
-                                <inner>1</inner>
-                                <tooltip>Signal sent when diagram is loaded.</tooltip>
-                                <id>1</id>
-                            </Input>
-                            <Input>
-                                <name>onStart</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>2</nature>
-                                <inner>0</inner>
-                                <tooltip>Start the timer with a specified period value (in seconds)</tooltip>
-                                <id>2</id>
-                            </Input>
-                            <Input>
-                                <name>onStop</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>3</nature>
-                                <inner>0</inner>
-                                <tooltip>Stop the timer</tooltip>
-                                <id>3</id>
-                            </Input>
-                            <Output>
-                                <name>timerOutput</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>2</nature>
-                                <inner>0</inner>
-                                <tooltip>send a bang after a certain amount of time.&#x0A;Warning: not outputted if stopped before time lapse.</tooltip>
-                                <id>4</id>
-                            </Output>
-                            <Parameter>
-                                <name>timeout</name>
-                                <inherits_from_parent>0</inherits_from_parent>
-                                <content_type>2</content_type>
-                                <value>5</value>
-                                <default_value>1</default_value>
-                                <min>0</min>
-                                <max>5000</max>
-                                <tooltip>After how many seconds the box will timeout and stimulate its ouput.</tooltip>
-                                <id>5</id>
-                            </Parameter>
-                        </Box>
-                        <Box>
-                            <name>Wait</name>
-                            <robot></robot>
-                            <id>12</id>
-                            <tooltip>The wait that can be stopped immediately and reset at any time.&#x0A;&#x0A;Stopping the box won&apos;t output a signal.&#x0A;*** ref box in: ./4_localize/Time/Wait/ExampleWait.xar ***&#x0A;*** last modification date(svn): Version it! ***</tooltip>
-                            <bitmap_expanded>1</bitmap_expanded>
-                            <Bitmaps>
-                                <bitmap>media/images/box/wait.png</bitmap>
-                            </Bitmaps>
-                            <plugin></plugin>
-                            <x>248</x>
-                            <y>611</y>
+                            <x>163</x>
+                            <y>612</y>
                             <script>
                                 <content>
                                     <![CDATA[import threading # opkg install python-threading
@@ -2708,15 +2314,692 @@ class MyClass(GeneratedClass):
                         <Box>
                             <name>Init pose</name>
                             <robot></robot>
-                            <id>5</id>
+                            <id>8</id>
                             <tooltip>Robot will go to the position &quot;Init pose&#x0A;Position description : Nao is ready to do anything from this position !&#x0A;</tooltip>
                             <bitmap_expanded>1</bitmap_expanded>
                             <Bitmaps>
                                 <bitmap>media/images/positions/Pos_init.png</bitmap>
                             </Bitmaps>
                             <plugin></plugin>
-                            <x>323</x>
-                            <y>203</y>
+                            <x>404</x>
+                            <y>273</y>
+                            <script>
+                                <content>
+                                    <![CDATA[]]>
+</content>
+                                <language>4</language>
+                            </script>
+                            <Input>
+                                <name>onLoad</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>0</nature>
+                                <inner>1</inner>
+                                <tooltip>Signal sent when diagram is loaded.</tooltip>
+                                <id>1</id>
+                            </Input>
+                            <Input>
+                                <name>onStart</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>2</nature>
+                                <inner>0</inner>
+                                <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
+                                <id>2</id>
+                            </Input>
+                            <Input>
+                                <name>onStop</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>3</nature>
+                                <inner>0</inner>
+                                <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
+                                <id>3</id>
+                            </Input>
+                            <Output>
+                                <name>onStopped</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>1</nature>
+                                <inner>0</inner>
+                                <tooltip>Signal sent when box behavior is finished.</tooltip>
+                                <id>4</id>
+                            </Output>
+                            <Timeline>
+                                <fps>10</fps>
+                                <resources_acquisition>0</resources_acquisition>
+                                <size>300</size>
+                                <enable>1</enable>
+                                <start_frame>0</start_frame>
+                                <end_frame>-1</end_frame>
+                                <Waveforms />
+                                <scale>10</scale>
+                                <watches />
+                                <ActuatorList>
+                                    <ActuatorCurve>
+                                        <name>value</name>
+                                        <actuator>HeadYaw</actuator>
+                                        <recordable>1</recordable>
+                                        <mute>0</mute>
+                                        <alwaysVisible>0</alwaysVisible>
+                                        <CurveKeys>
+                                            <Key>
+                                                <frame>20</frame>
+                                                <value>0</value>
+                                                <Tangents>
+                                                    <Tangent>
+                                                        <side>left</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>-6.66667</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                    <Tangent>
+                                                        <side>right</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>0</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                </Tangents>
+                                                <smooth>0</smooth>
+                                                <symmetrical>0</symmetrical>
+                                            </Key>
+                                        </CurveKeys>
+                                    </ActuatorCurve>
+                                    <ActuatorCurve>
+                                        <name>value</name>
+                                        <actuator>HeadPitch</actuator>
+                                        <recordable>1</recordable>
+                                        <mute>0</mute>
+                                        <alwaysVisible>0</alwaysVisible>
+                                        <CurveKeys>
+                                            <Key>
+                                                <frame>20</frame>
+                                                <value>0</value>
+                                                <Tangents>
+                                                    <Tangent>
+                                                        <side>left</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>-6.66667</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                    <Tangent>
+                                                        <side>right</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>0</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                </Tangents>
+                                                <smooth>0</smooth>
+                                                <symmetrical>0</symmetrical>
+                                            </Key>
+                                        </CurveKeys>
+                                    </ActuatorCurve>
+                                    <ActuatorCurve>
+                                        <name>value</name>
+                                        <actuator>LShoulderPitch</actuator>
+                                        <recordable>1</recordable>
+                                        <mute>0</mute>
+                                        <alwaysVisible>0</alwaysVisible>
+                                        <CurveKeys>
+                                            <Key>
+                                                <frame>20</frame>
+                                                <value>80</value>
+                                                <Tangents>
+                                                    <Tangent>
+                                                        <side>left</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>-6.66667</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                    <Tangent>
+                                                        <side>right</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>0</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                </Tangents>
+                                                <smooth>0</smooth>
+                                                <symmetrical>0</symmetrical>
+                                            </Key>
+                                        </CurveKeys>
+                                    </ActuatorCurve>
+                                    <ActuatorCurve>
+                                        <name>value</name>
+                                        <actuator>LShoulderRoll</actuator>
+                                        <recordable>1</recordable>
+                                        <mute>0</mute>
+                                        <alwaysVisible>0</alwaysVisible>
+                                        <CurveKeys>
+                                            <Key>
+                                                <frame>20</frame>
+                                                <value>20</value>
+                                                <Tangents>
+                                                    <Tangent>
+                                                        <side>left</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>-6.66667</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                    <Tangent>
+                                                        <side>right</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>0</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                </Tangents>
+                                                <smooth>0</smooth>
+                                                <symmetrical>0</symmetrical>
+                                            </Key>
+                                        </CurveKeys>
+                                    </ActuatorCurve>
+                                    <ActuatorCurve>
+                                        <name>value</name>
+                                        <actuator>LElbowYaw</actuator>
+                                        <recordable>1</recordable>
+                                        <mute>0</mute>
+                                        <alwaysVisible>0</alwaysVisible>
+                                        <CurveKeys>
+                                            <Key>
+                                                <frame>20</frame>
+                                                <value>-80</value>
+                                                <Tangents>
+                                                    <Tangent>
+                                                        <side>left</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>-6.66667</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                    <Tangent>
+                                                        <side>right</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>0</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                </Tangents>
+                                                <smooth>0</smooth>
+                                                <symmetrical>0</symmetrical>
+                                            </Key>
+                                        </CurveKeys>
+                                    </ActuatorCurve>
+                                    <ActuatorCurve>
+                                        <name>value</name>
+                                        <actuator>LElbowRoll</actuator>
+                                        <recordable>1</recordable>
+                                        <mute>0</mute>
+                                        <alwaysVisible>0</alwaysVisible>
+                                        <CurveKeys>
+                                            <Key>
+                                                <frame>20</frame>
+                                                <value>-60</value>
+                                                <Tangents>
+                                                    <Tangent>
+                                                        <side>left</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>-6.66667</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                    <Tangent>
+                                                        <side>right</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>0</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                </Tangents>
+                                                <smooth>0</smooth>
+                                                <symmetrical>0</symmetrical>
+                                            </Key>
+                                        </CurveKeys>
+                                    </ActuatorCurve>
+                                    <ActuatorCurve>
+                                        <name>value</name>
+                                        <actuator>RShoulderPitch</actuator>
+                                        <recordable>1</recordable>
+                                        <mute>0</mute>
+                                        <alwaysVisible>0</alwaysVisible>
+                                        <CurveKeys>
+                                            <Key>
+                                                <frame>20</frame>
+                                                <value>80</value>
+                                                <Tangents>
+                                                    <Tangent>
+                                                        <side>left</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>-6.66667</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                    <Tangent>
+                                                        <side>right</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>0</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                </Tangents>
+                                                <smooth>0</smooth>
+                                                <symmetrical>0</symmetrical>
+                                            </Key>
+                                        </CurveKeys>
+                                    </ActuatorCurve>
+                                    <ActuatorCurve>
+                                        <name>value</name>
+                                        <actuator>RShoulderRoll</actuator>
+                                        <recordable>1</recordable>
+                                        <mute>0</mute>
+                                        <alwaysVisible>0</alwaysVisible>
+                                        <CurveKeys>
+                                            <Key>
+                                                <frame>20</frame>
+                                                <value>-20</value>
+                                                <Tangents>
+                                                    <Tangent>
+                                                        <side>left</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>-6.66667</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                    <Tangent>
+                                                        <side>right</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>0</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                </Tangents>
+                                                <smooth>0</smooth>
+                                                <symmetrical>0</symmetrical>
+                                            </Key>
+                                        </CurveKeys>
+                                    </ActuatorCurve>
+                                    <ActuatorCurve>
+                                        <name>value</name>
+                                        <actuator>RElbowYaw</actuator>
+                                        <recordable>1</recordable>
+                                        <mute>0</mute>
+                                        <alwaysVisible>0</alwaysVisible>
+                                        <CurveKeys>
+                                            <Key>
+                                                <frame>20</frame>
+                                                <value>80</value>
+                                                <Tangents>
+                                                    <Tangent>
+                                                        <side>left</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>-6.66667</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                    <Tangent>
+                                                        <side>right</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>0</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                </Tangents>
+                                                <smooth>0</smooth>
+                                                <symmetrical>0</symmetrical>
+                                            </Key>
+                                        </CurveKeys>
+                                    </ActuatorCurve>
+                                    <ActuatorCurve>
+                                        <name>value</name>
+                                        <actuator>RElbowRoll</actuator>
+                                        <recordable>1</recordable>
+                                        <mute>0</mute>
+                                        <alwaysVisible>0</alwaysVisible>
+                                        <CurveKeys>
+                                            <Key>
+                                                <frame>20</frame>
+                                                <value>60</value>
+                                                <Tangents>
+                                                    <Tangent>
+                                                        <side>left</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>-6.66667</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                    <Tangent>
+                                                        <side>right</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>0</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                </Tangents>
+                                                <smooth>0</smooth>
+                                                <symmetrical>0</symmetrical>
+                                            </Key>
+                                        </CurveKeys>
+                                    </ActuatorCurve>
+                                    <ActuatorCurve>
+                                        <name>value</name>
+                                        <actuator>LHipYawPitch</actuator>
+                                        <recordable>1</recordable>
+                                        <mute>0</mute>
+                                        <alwaysVisible>0</alwaysVisible>
+                                        <CurveKeys>
+                                            <Key>
+                                                <frame>20</frame>
+                                                <value>0</value>
+                                                <Tangents>
+                                                    <Tangent>
+                                                        <side>left</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>-6.66667</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                    <Tangent>
+                                                        <side>right</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>0</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                </Tangents>
+                                                <smooth>0</smooth>
+                                                <symmetrical>0</symmetrical>
+                                            </Key>
+                                        </CurveKeys>
+                                    </ActuatorCurve>
+                                    <ActuatorCurve>
+                                        <name>value</name>
+                                        <actuator>LHipRoll</actuator>
+                                        <recordable>1</recordable>
+                                        <mute>0</mute>
+                                        <alwaysVisible>0</alwaysVisible>
+                                        <CurveKeys>
+                                            <Key>
+                                                <frame>20</frame>
+                                                <value>0</value>
+                                                <Tangents>
+                                                    <Tangent>
+                                                        <side>left</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>-6.66667</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                    <Tangent>
+                                                        <side>right</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>0</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                </Tangents>
+                                                <smooth>0</smooth>
+                                                <symmetrical>0</symmetrical>
+                                            </Key>
+                                        </CurveKeys>
+                                    </ActuatorCurve>
+                                    <ActuatorCurve>
+                                        <name>value</name>
+                                        <actuator>LHipPitch</actuator>
+                                        <recordable>1</recordable>
+                                        <mute>0</mute>
+                                        <alwaysVisible>0</alwaysVisible>
+                                        <CurveKeys>
+                                            <Key>
+                                                <frame>20</frame>
+                                                <value>-25</value>
+                                                <Tangents>
+                                                    <Tangent>
+                                                        <side>left</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>-6.66667</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                    <Tangent>
+                                                        <side>right</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>0</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                </Tangents>
+                                                <smooth>0</smooth>
+                                                <symmetrical>0</symmetrical>
+                                            </Key>
+                                        </CurveKeys>
+                                    </ActuatorCurve>
+                                    <ActuatorCurve>
+                                        <name>value</name>
+                                        <actuator>LKneePitch</actuator>
+                                        <recordable>1</recordable>
+                                        <mute>0</mute>
+                                        <alwaysVisible>0</alwaysVisible>
+                                        <CurveKeys>
+                                            <Key>
+                                                <frame>20</frame>
+                                                <value>40</value>
+                                                <Tangents>
+                                                    <Tangent>
+                                                        <side>left</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>-6.66667</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                    <Tangent>
+                                                        <side>right</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>0</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                </Tangents>
+                                                <smooth>0</smooth>
+                                                <symmetrical>0</symmetrical>
+                                            </Key>
+                                        </CurveKeys>
+                                    </ActuatorCurve>
+                                    <ActuatorCurve>
+                                        <name>value</name>
+                                        <actuator>LAnklePitch</actuator>
+                                        <recordable>1</recordable>
+                                        <mute>0</mute>
+                                        <alwaysVisible>0</alwaysVisible>
+                                        <CurveKeys>
+                                            <Key>
+                                                <frame>20</frame>
+                                                <value>-20</value>
+                                                <Tangents>
+                                                    <Tangent>
+                                                        <side>left</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>-6.66667</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                    <Tangent>
+                                                        <side>right</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>0</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                </Tangents>
+                                                <smooth>0</smooth>
+                                                <symmetrical>0</symmetrical>
+                                            </Key>
+                                        </CurveKeys>
+                                    </ActuatorCurve>
+                                    <ActuatorCurve>
+                                        <name>value</name>
+                                        <actuator>LAnkleRoll</actuator>
+                                        <recordable>1</recordable>
+                                        <mute>0</mute>
+                                        <alwaysVisible>0</alwaysVisible>
+                                        <CurveKeys>
+                                            <Key>
+                                                <frame>20</frame>
+                                                <value>0</value>
+                                                <Tangents>
+                                                    <Tangent>
+                                                        <side>left</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>-6.66667</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                    <Tangent>
+                                                        <side>right</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>0</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                </Tangents>
+                                                <smooth>0</smooth>
+                                                <symmetrical>0</symmetrical>
+                                            </Key>
+                                        </CurveKeys>
+                                    </ActuatorCurve>
+                                    <ActuatorCurve>
+                                        <name>value</name>
+                                        <actuator>RHipRoll</actuator>
+                                        <recordable>1</recordable>
+                                        <mute>0</mute>
+                                        <alwaysVisible>0</alwaysVisible>
+                                        <CurveKeys>
+                                            <Key>
+                                                <frame>20</frame>
+                                                <value>0</value>
+                                                <Tangents>
+                                                    <Tangent>
+                                                        <side>left</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>-6.66667</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                    <Tangent>
+                                                        <side>right</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>0</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                </Tangents>
+                                                <smooth>0</smooth>
+                                                <symmetrical>0</symmetrical>
+                                            </Key>
+                                        </CurveKeys>
+                                    </ActuatorCurve>
+                                    <ActuatorCurve>
+                                        <name>value</name>
+                                        <actuator>RHipPitch</actuator>
+                                        <recordable>1</recordable>
+                                        <mute>0</mute>
+                                        <alwaysVisible>0</alwaysVisible>
+                                        <CurveKeys>
+                                            <Key>
+                                                <frame>20</frame>
+                                                <value>-25</value>
+                                                <Tangents>
+                                                    <Tangent>
+                                                        <side>left</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>-6.66667</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                    <Tangent>
+                                                        <side>right</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>0</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                </Tangents>
+                                                <smooth>0</smooth>
+                                                <symmetrical>0</symmetrical>
+                                            </Key>
+                                        </CurveKeys>
+                                    </ActuatorCurve>
+                                    <ActuatorCurve>
+                                        <name>value</name>
+                                        <actuator>RKneePitch</actuator>
+                                        <recordable>1</recordable>
+                                        <mute>0</mute>
+                                        <alwaysVisible>0</alwaysVisible>
+                                        <CurveKeys>
+                                            <Key>
+                                                <frame>20</frame>
+                                                <value>40</value>
+                                                <Tangents>
+                                                    <Tangent>
+                                                        <side>left</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>-6.66667</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                    <Tangent>
+                                                        <side>right</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>0</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                </Tangents>
+                                                <smooth>0</smooth>
+                                                <symmetrical>0</symmetrical>
+                                            </Key>
+                                        </CurveKeys>
+                                    </ActuatorCurve>
+                                    <ActuatorCurve>
+                                        <name>value</name>
+                                        <actuator>RAnklePitch</actuator>
+                                        <recordable>1</recordable>
+                                        <mute>0</mute>
+                                        <alwaysVisible>0</alwaysVisible>
+                                        <CurveKeys>
+                                            <Key>
+                                                <frame>20</frame>
+                                                <value>-20</value>
+                                                <Tangents>
+                                                    <Tangent>
+                                                        <side>left</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>-6.66667</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                    <Tangent>
+                                                        <side>right</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>0</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                </Tangents>
+                                                <smooth>0</smooth>
+                                                <symmetrical>0</symmetrical>
+                                            </Key>
+                                        </CurveKeys>
+                                    </ActuatorCurve>
+                                    <ActuatorCurve>
+                                        <name>value</name>
+                                        <actuator>RAnkleRoll</actuator>
+                                        <recordable>1</recordable>
+                                        <mute>0</mute>
+                                        <alwaysVisible>0</alwaysVisible>
+                                        <CurveKeys>
+                                            <Key>
+                                                <frame>20</frame>
+                                                <value>0</value>
+                                                <Tangents>
+                                                    <Tangent>
+                                                        <side>left</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>-6.66667</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                    <Tangent>
+                                                        <side>right</side>
+                                                        <interpType>bezier auto</interpType>
+                                                        <abscissaParam>0</abscissaParam>
+                                                        <ordinateParam>0</ordinateParam>
+                                                    </Tangent>
+                                                </Tangents>
+                                                <smooth>0</smooth>
+                                                <symmetrical>0</symmetrical>
+                                            </Key>
+                                        </CurveKeys>
+                                    </ActuatorCurve>
+                                </ActuatorList>
+                            </Timeline>
+                        </Box>
+                        <Box>
+                            <name>Init pose</name>
+                            <robot></robot>
+                            <id>11</id>
+                            <tooltip>Robot will go to the position &quot;Init pose&#x0A;Position description : Nao is ready to do anything from this position !&#x0A;</tooltip>
+                            <bitmap_expanded>1</bitmap_expanded>
+                            <Bitmaps>
+                                <bitmap>media/images/positions/Pos_init.png</bitmap>
+                            </Bitmaps>
+                            <plugin></plugin>
+                            <x>333</x>
+                            <y>600</y>
                             <script>
                                 <content>
                                     <![CDATA[]]>
@@ -3392,8 +3675,8 @@ class MyClass(GeneratedClass):
                                 <bitmap>media/images/box/box-diagram.png</bitmap>
                             </Bitmaps>
                             <plugin></plugin>
-                            <x>415</x>
-                            <y>498</y>
+                            <x>486</x>
+                            <y>417</y>
                             <script>
                                 <content>
                                     <![CDATA[]]>
@@ -12176,783 +12459,17 @@ class MyClass(GeneratedClass):
                             </Timeline>
                         </Box>
                         <Box>
-                            <name>DetecteMark</name>
-                            <robot></robot>
-                            <id>10</id>
-                            <tooltip>Enter tooltip here</tooltip>
-                            <bitmap_expanded>1</bitmap_expanded>
-                            <Bitmaps>
-                                <bitmap>media/images/box/box-diagram.png</bitmap>
-                            </Bitmaps>
-                            <plugin></plugin>
-                            <x>350</x>
-                            <y>34</y>
-                            <script>
-                                <content>
-                                    <![CDATA[class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self)
-        self.loop = True
-        self.miss = 0
-    def onLoad(self):
-        #~ puts code for box initialization here
-        pass
-
-    def onUnload(self):
-        #~ puts code for box cleanup here
-        self.loop = False
-
-    def onInput_onStart(self):
-        time.sleep(1)
-        while self.loop:
-           self.log(self.miss)
-           self.log(ALMemory.getData("LandmarkDetected", 0))
-           time.sleep(0.1)
-           if len(ALMemory.getData("LandmarkDetected", 0)) == 0:
-               self.miss = self.miss + 1
-           else:
-               self.miss = 0
-           if self.miss == 10:
-               break
-  
-        self.log("STOP IT")
-        self.onStopped()
-
-    def onInput_onStop(self):
-        self.onUnload() #~ it is recommanded to call onUnload of this box in a onStop method, as the code written in onUnload is used to stop the box as well
-        pass
-
-    def onInput_markDetect(self, p):
-        pass]]>
-</content>
-                                <language>4</language>
-                            </script>
-                            <Input>
-                                <name>onLoad</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>0</nature>
-                                <inner>1</inner>
-                                <tooltip>Signal sent when diagram is loaded.</tooltip>
-                                <id>1</id>
-                            </Input>
-                            <Input>
-                                <name>onStart</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>2</nature>
-                                <inner>0</inner>
-                                <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
-                                <id>2</id>
-                            </Input>
-                            <Input>
-                                <name>onStop</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>3</nature>
-                                <inner>0</inner>
-                                <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
-                                <id>3</id>
-                            </Input>
-                            <Output>
-                                <name>onStopped</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>1</nature>
-                                <inner>0</inner>
-                                <tooltip>Signal sent when box behavior is finished.</tooltip>
-                                <id>4</id>
-                            </Output>
-                        </Box>
-                        <Box>
-                            <name>Init pose</name>
-                            <robot></robot>
-                            <id>13</id>
-                            <tooltip>Robot will go to the position &quot;Init pose&#x0A;Position description : Nao is ready to do anything from this position !&#x0A;</tooltip>
-                            <bitmap_expanded>1</bitmap_expanded>
-                            <Bitmaps>
-                                <bitmap>media/images/positions/Pos_init.png</bitmap>
-                            </Bitmaps>
-                            <plugin></plugin>
-                            <x>403</x>
-                            <y>612</y>
-                            <script>
-                                <content>
-                                    <![CDATA[]]>
-</content>
-                                <language>4</language>
-                            </script>
-                            <Input>
-                                <name>onLoad</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>0</nature>
-                                <inner>1</inner>
-                                <tooltip>Signal sent when diagram is loaded.</tooltip>
-                                <id>1</id>
-                            </Input>
-                            <Input>
-                                <name>onStart</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>2</nature>
-                                <inner>0</inner>
-                                <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
-                                <id>2</id>
-                            </Input>
-                            <Input>
-                                <name>onStop</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>3</nature>
-                                <inner>0</inner>
-                                <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
-                                <id>3</id>
-                            </Input>
-                            <Output>
-                                <name>onStopped</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>1</nature>
-                                <inner>0</inner>
-                                <tooltip>Signal sent when box behavior is finished.</tooltip>
-                                <id>4</id>
-                            </Output>
-                            <Timeline>
-                                <fps>10</fps>
-                                <resources_acquisition>0</resources_acquisition>
-                                <size>300</size>
-                                <enable>1</enable>
-                                <start_frame>0</start_frame>
-                                <end_frame>-1</end_frame>
-                                <Waveforms />
-                                <scale>10</scale>
-                                <watches />
-                                <ActuatorList>
-                                    <ActuatorCurve>
-                                        <name>value</name>
-                                        <actuator>HeadYaw</actuator>
-                                        <recordable>1</recordable>
-                                        <mute>0</mute>
-                                        <alwaysVisible>0</alwaysVisible>
-                                        <CurveKeys>
-                                            <Key>
-                                                <frame>20</frame>
-                                                <value>0</value>
-                                                <Tangents>
-                                                    <Tangent>
-                                                        <side>left</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>-6.66667</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                    <Tangent>
-                                                        <side>right</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>0</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                </Tangents>
-                                                <smooth>0</smooth>
-                                                <symmetrical>0</symmetrical>
-                                            </Key>
-                                        </CurveKeys>
-                                    </ActuatorCurve>
-                                    <ActuatorCurve>
-                                        <name>value</name>
-                                        <actuator>HeadPitch</actuator>
-                                        <recordable>1</recordable>
-                                        <mute>0</mute>
-                                        <alwaysVisible>0</alwaysVisible>
-                                        <CurveKeys>
-                                            <Key>
-                                                <frame>20</frame>
-                                                <value>0</value>
-                                                <Tangents>
-                                                    <Tangent>
-                                                        <side>left</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>-6.66667</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                    <Tangent>
-                                                        <side>right</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>0</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                </Tangents>
-                                                <smooth>0</smooth>
-                                                <symmetrical>0</symmetrical>
-                                            </Key>
-                                        </CurveKeys>
-                                    </ActuatorCurve>
-                                    <ActuatorCurve>
-                                        <name>value</name>
-                                        <actuator>LShoulderPitch</actuator>
-                                        <recordable>1</recordable>
-                                        <mute>0</mute>
-                                        <alwaysVisible>0</alwaysVisible>
-                                        <CurveKeys>
-                                            <Key>
-                                                <frame>20</frame>
-                                                <value>80</value>
-                                                <Tangents>
-                                                    <Tangent>
-                                                        <side>left</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>-6.66667</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                    <Tangent>
-                                                        <side>right</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>0</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                </Tangents>
-                                                <smooth>0</smooth>
-                                                <symmetrical>0</symmetrical>
-                                            </Key>
-                                        </CurveKeys>
-                                    </ActuatorCurve>
-                                    <ActuatorCurve>
-                                        <name>value</name>
-                                        <actuator>LShoulderRoll</actuator>
-                                        <recordable>1</recordable>
-                                        <mute>0</mute>
-                                        <alwaysVisible>0</alwaysVisible>
-                                        <CurveKeys>
-                                            <Key>
-                                                <frame>20</frame>
-                                                <value>20</value>
-                                                <Tangents>
-                                                    <Tangent>
-                                                        <side>left</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>-6.66667</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                    <Tangent>
-                                                        <side>right</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>0</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                </Tangents>
-                                                <smooth>0</smooth>
-                                                <symmetrical>0</symmetrical>
-                                            </Key>
-                                        </CurveKeys>
-                                    </ActuatorCurve>
-                                    <ActuatorCurve>
-                                        <name>value</name>
-                                        <actuator>LElbowYaw</actuator>
-                                        <recordable>1</recordable>
-                                        <mute>0</mute>
-                                        <alwaysVisible>0</alwaysVisible>
-                                        <CurveKeys>
-                                            <Key>
-                                                <frame>20</frame>
-                                                <value>-80</value>
-                                                <Tangents>
-                                                    <Tangent>
-                                                        <side>left</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>-6.66667</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                    <Tangent>
-                                                        <side>right</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>0</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                </Tangents>
-                                                <smooth>0</smooth>
-                                                <symmetrical>0</symmetrical>
-                                            </Key>
-                                        </CurveKeys>
-                                    </ActuatorCurve>
-                                    <ActuatorCurve>
-                                        <name>value</name>
-                                        <actuator>LElbowRoll</actuator>
-                                        <recordable>1</recordable>
-                                        <mute>0</mute>
-                                        <alwaysVisible>0</alwaysVisible>
-                                        <CurveKeys>
-                                            <Key>
-                                                <frame>20</frame>
-                                                <value>-60</value>
-                                                <Tangents>
-                                                    <Tangent>
-                                                        <side>left</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>-6.66667</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                    <Tangent>
-                                                        <side>right</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>0</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                </Tangents>
-                                                <smooth>0</smooth>
-                                                <symmetrical>0</symmetrical>
-                                            </Key>
-                                        </CurveKeys>
-                                    </ActuatorCurve>
-                                    <ActuatorCurve>
-                                        <name>value</name>
-                                        <actuator>RShoulderPitch</actuator>
-                                        <recordable>1</recordable>
-                                        <mute>0</mute>
-                                        <alwaysVisible>0</alwaysVisible>
-                                        <CurveKeys>
-                                            <Key>
-                                                <frame>20</frame>
-                                                <value>80</value>
-                                                <Tangents>
-                                                    <Tangent>
-                                                        <side>left</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>-6.66667</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                    <Tangent>
-                                                        <side>right</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>0</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                </Tangents>
-                                                <smooth>0</smooth>
-                                                <symmetrical>0</symmetrical>
-                                            </Key>
-                                        </CurveKeys>
-                                    </ActuatorCurve>
-                                    <ActuatorCurve>
-                                        <name>value</name>
-                                        <actuator>RShoulderRoll</actuator>
-                                        <recordable>1</recordable>
-                                        <mute>0</mute>
-                                        <alwaysVisible>0</alwaysVisible>
-                                        <CurveKeys>
-                                            <Key>
-                                                <frame>20</frame>
-                                                <value>-20</value>
-                                                <Tangents>
-                                                    <Tangent>
-                                                        <side>left</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>-6.66667</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                    <Tangent>
-                                                        <side>right</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>0</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                </Tangents>
-                                                <smooth>0</smooth>
-                                                <symmetrical>0</symmetrical>
-                                            </Key>
-                                        </CurveKeys>
-                                    </ActuatorCurve>
-                                    <ActuatorCurve>
-                                        <name>value</name>
-                                        <actuator>RElbowYaw</actuator>
-                                        <recordable>1</recordable>
-                                        <mute>0</mute>
-                                        <alwaysVisible>0</alwaysVisible>
-                                        <CurveKeys>
-                                            <Key>
-                                                <frame>20</frame>
-                                                <value>80</value>
-                                                <Tangents>
-                                                    <Tangent>
-                                                        <side>left</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>-6.66667</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                    <Tangent>
-                                                        <side>right</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>0</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                </Tangents>
-                                                <smooth>0</smooth>
-                                                <symmetrical>0</symmetrical>
-                                            </Key>
-                                        </CurveKeys>
-                                    </ActuatorCurve>
-                                    <ActuatorCurve>
-                                        <name>value</name>
-                                        <actuator>RElbowRoll</actuator>
-                                        <recordable>1</recordable>
-                                        <mute>0</mute>
-                                        <alwaysVisible>0</alwaysVisible>
-                                        <CurveKeys>
-                                            <Key>
-                                                <frame>20</frame>
-                                                <value>60</value>
-                                                <Tangents>
-                                                    <Tangent>
-                                                        <side>left</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>-6.66667</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                    <Tangent>
-                                                        <side>right</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>0</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                </Tangents>
-                                                <smooth>0</smooth>
-                                                <symmetrical>0</symmetrical>
-                                            </Key>
-                                        </CurveKeys>
-                                    </ActuatorCurve>
-                                    <ActuatorCurve>
-                                        <name>value</name>
-                                        <actuator>LHipYawPitch</actuator>
-                                        <recordable>1</recordable>
-                                        <mute>0</mute>
-                                        <alwaysVisible>0</alwaysVisible>
-                                        <CurveKeys>
-                                            <Key>
-                                                <frame>20</frame>
-                                                <value>0</value>
-                                                <Tangents>
-                                                    <Tangent>
-                                                        <side>left</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>-6.66667</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                    <Tangent>
-                                                        <side>right</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>0</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                </Tangents>
-                                                <smooth>0</smooth>
-                                                <symmetrical>0</symmetrical>
-                                            </Key>
-                                        </CurveKeys>
-                                    </ActuatorCurve>
-                                    <ActuatorCurve>
-                                        <name>value</name>
-                                        <actuator>LHipRoll</actuator>
-                                        <recordable>1</recordable>
-                                        <mute>0</mute>
-                                        <alwaysVisible>0</alwaysVisible>
-                                        <CurveKeys>
-                                            <Key>
-                                                <frame>20</frame>
-                                                <value>0</value>
-                                                <Tangents>
-                                                    <Tangent>
-                                                        <side>left</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>-6.66667</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                    <Tangent>
-                                                        <side>right</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>0</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                </Tangents>
-                                                <smooth>0</smooth>
-                                                <symmetrical>0</symmetrical>
-                                            </Key>
-                                        </CurveKeys>
-                                    </ActuatorCurve>
-                                    <ActuatorCurve>
-                                        <name>value</name>
-                                        <actuator>LHipPitch</actuator>
-                                        <recordable>1</recordable>
-                                        <mute>0</mute>
-                                        <alwaysVisible>0</alwaysVisible>
-                                        <CurveKeys>
-                                            <Key>
-                                                <frame>20</frame>
-                                                <value>-25</value>
-                                                <Tangents>
-                                                    <Tangent>
-                                                        <side>left</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>-6.66667</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                    <Tangent>
-                                                        <side>right</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>0</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                </Tangents>
-                                                <smooth>0</smooth>
-                                                <symmetrical>0</symmetrical>
-                                            </Key>
-                                        </CurveKeys>
-                                    </ActuatorCurve>
-                                    <ActuatorCurve>
-                                        <name>value</name>
-                                        <actuator>LKneePitch</actuator>
-                                        <recordable>1</recordable>
-                                        <mute>0</mute>
-                                        <alwaysVisible>0</alwaysVisible>
-                                        <CurveKeys>
-                                            <Key>
-                                                <frame>20</frame>
-                                                <value>40</value>
-                                                <Tangents>
-                                                    <Tangent>
-                                                        <side>left</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>-6.66667</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                    <Tangent>
-                                                        <side>right</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>0</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                </Tangents>
-                                                <smooth>0</smooth>
-                                                <symmetrical>0</symmetrical>
-                                            </Key>
-                                        </CurveKeys>
-                                    </ActuatorCurve>
-                                    <ActuatorCurve>
-                                        <name>value</name>
-                                        <actuator>LAnklePitch</actuator>
-                                        <recordable>1</recordable>
-                                        <mute>0</mute>
-                                        <alwaysVisible>0</alwaysVisible>
-                                        <CurveKeys>
-                                            <Key>
-                                                <frame>20</frame>
-                                                <value>-20</value>
-                                                <Tangents>
-                                                    <Tangent>
-                                                        <side>left</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>-6.66667</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                    <Tangent>
-                                                        <side>right</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>0</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                </Tangents>
-                                                <smooth>0</smooth>
-                                                <symmetrical>0</symmetrical>
-                                            </Key>
-                                        </CurveKeys>
-                                    </ActuatorCurve>
-                                    <ActuatorCurve>
-                                        <name>value</name>
-                                        <actuator>LAnkleRoll</actuator>
-                                        <recordable>1</recordable>
-                                        <mute>0</mute>
-                                        <alwaysVisible>0</alwaysVisible>
-                                        <CurveKeys>
-                                            <Key>
-                                                <frame>20</frame>
-                                                <value>0</value>
-                                                <Tangents>
-                                                    <Tangent>
-                                                        <side>left</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>-6.66667</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                    <Tangent>
-                                                        <side>right</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>0</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                </Tangents>
-                                                <smooth>0</smooth>
-                                                <symmetrical>0</symmetrical>
-                                            </Key>
-                                        </CurveKeys>
-                                    </ActuatorCurve>
-                                    <ActuatorCurve>
-                                        <name>value</name>
-                                        <actuator>RHipRoll</actuator>
-                                        <recordable>1</recordable>
-                                        <mute>0</mute>
-                                        <alwaysVisible>0</alwaysVisible>
-                                        <CurveKeys>
-                                            <Key>
-                                                <frame>20</frame>
-                                                <value>0</value>
-                                                <Tangents>
-                                                    <Tangent>
-                                                        <side>left</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>-6.66667</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                    <Tangent>
-                                                        <side>right</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>0</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                </Tangents>
-                                                <smooth>0</smooth>
-                                                <symmetrical>0</symmetrical>
-                                            </Key>
-                                        </CurveKeys>
-                                    </ActuatorCurve>
-                                    <ActuatorCurve>
-                                        <name>value</name>
-                                        <actuator>RHipPitch</actuator>
-                                        <recordable>1</recordable>
-                                        <mute>0</mute>
-                                        <alwaysVisible>0</alwaysVisible>
-                                        <CurveKeys>
-                                            <Key>
-                                                <frame>20</frame>
-                                                <value>-25</value>
-                                                <Tangents>
-                                                    <Tangent>
-                                                        <side>left</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>-6.66667</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                    <Tangent>
-                                                        <side>right</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>0</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                </Tangents>
-                                                <smooth>0</smooth>
-                                                <symmetrical>0</symmetrical>
-                                            </Key>
-                                        </CurveKeys>
-                                    </ActuatorCurve>
-                                    <ActuatorCurve>
-                                        <name>value</name>
-                                        <actuator>RKneePitch</actuator>
-                                        <recordable>1</recordable>
-                                        <mute>0</mute>
-                                        <alwaysVisible>0</alwaysVisible>
-                                        <CurveKeys>
-                                            <Key>
-                                                <frame>20</frame>
-                                                <value>40</value>
-                                                <Tangents>
-                                                    <Tangent>
-                                                        <side>left</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>-6.66667</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                    <Tangent>
-                                                        <side>right</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>0</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                </Tangents>
-                                                <smooth>0</smooth>
-                                                <symmetrical>0</symmetrical>
-                                            </Key>
-                                        </CurveKeys>
-                                    </ActuatorCurve>
-                                    <ActuatorCurve>
-                                        <name>value</name>
-                                        <actuator>RAnklePitch</actuator>
-                                        <recordable>1</recordable>
-                                        <mute>0</mute>
-                                        <alwaysVisible>0</alwaysVisible>
-                                        <CurveKeys>
-                                            <Key>
-                                                <frame>20</frame>
-                                                <value>-20</value>
-                                                <Tangents>
-                                                    <Tangent>
-                                                        <side>left</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>-6.66667</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                    <Tangent>
-                                                        <side>right</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>0</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                </Tangents>
-                                                <smooth>0</smooth>
-                                                <symmetrical>0</symmetrical>
-                                            </Key>
-                                        </CurveKeys>
-                                    </ActuatorCurve>
-                                    <ActuatorCurve>
-                                        <name>value</name>
-                                        <actuator>RAnkleRoll</actuator>
-                                        <recordable>1</recordable>
-                                        <mute>0</mute>
-                                        <alwaysVisible>0</alwaysVisible>
-                                        <CurveKeys>
-                                            <Key>
-                                                <frame>20</frame>
-                                                <value>0</value>
-                                                <Tangents>
-                                                    <Tangent>
-                                                        <side>left</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>-6.66667</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                    <Tangent>
-                                                        <side>right</side>
-                                                        <interpType>bezier auto</interpType>
-                                                        <abscissaParam>0</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
-                                                    </Tangent>
-                                                </Tangents>
-                                                <smooth>0</smooth>
-                                                <symmetrical>0</symmetrical>
-                                            </Key>
-                                        </CurveKeys>
-                                    </ActuatorCurve>
-                                </ActuatorList>
-                            </Timeline>
-                        </Box>
-                        <Box>
                             <name>WalkTo</name>
                             <robot></robot>
-                            <id>6</id>
+                            <id>12</id>
                             <tooltip>This Box is for make NAO walk to a point relative to his current location &#x0A;&#x0A;Box Extra Parameter the new position:&#x0A;X for front/rear motion (metre)&#x0A;Y for lateral motion (meter)&#x0A;Theta for rotation (radian)&#x0A;&#x0A;Note:&#x0A;Default is walk straight 20cm</tooltip>
                             <bitmap_expanded>1</bitmap_expanded>
                             <Bitmaps>
                                 <bitmap>media/images/box/movement/walk_forward.png</bitmap>
                             </Bitmaps>
                             <plugin></plugin>
-                            <x>521</x>
-                            <y>184</y>
+                            <x>525</x>
+                            <y>276</y>
                             <script>
                                 <content>
                                     <![CDATA[class MyClass(GeneratedClass):
@@ -13089,26 +12606,118 @@ class MyClass(GeneratedClass):
                             </Parameter>
                         </Box>
                         <Box>
-                            <name>Enter name here</name>
+                            <name>Wait</name>
                             <robot></robot>
-                            <id>7</id>
-                            <tooltip>Enter tooltip here</tooltip>
+                            <id>6</id>
+                            <tooltip>The wait that can be stopped immediately and reset at any time.&#x0A;&#x0A;Stopping the box won&apos;t output a signal.&#x0A;*** ref box in: ./4_localize/Time/Wait/ExampleWait.xar ***&#x0A;*** last modification date(svn): Version it! ***</tooltip>
                             <bitmap_expanded>1</bitmap_expanded>
                             <Bitmaps>
-                                <bitmap>media/images/box/box-diagram.png</bitmap>
+                                <bitmap>media/images/box/wait.png</bitmap>
                             </Bitmaps>
                             <plugin></plugin>
-                            <x>540</x>
-                            <y>307</y>
+                            <x>338</x>
+                            <y>431</y>
+                            <script>
+                                <content>
+                                    <![CDATA[import threading # opkg install python-threading
+class MyClass(GeneratedClass):
+  def __init__(self):
+    GeneratedClass.__init__(self)
+    self.tb = False;
+  
+  def onUnload(self):
+    self.onInput_onStop();
+    
+  def triggerOutput( self, rPeriod = 1 ):
+    self.timerOutput();
+    self.onInput_onStop(); # to clean everything
+  
+  def startTimer( self, rPeriod = 1 ):
+    if( self.tb ):
+      self.tb.cancel();
+    self.tb = threading.Timer( rPeriod, self.triggerOutput, [rPeriod] );
+    self.tb.start();
+
+  def onInput_onStart(self):
+    self.startTimer( self.getParameter("timeout") );
+  
+  def onInput_onStop(self):
+    if( self.tb ):
+      self.tb.cancel();
+      self.tb = False;]]>
+</content>
+                                <language>4</language>
+                            </script>
+                            <Input>
+                                <name>onLoad</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>0</nature>
+                                <inner>1</inner>
+                                <tooltip>Signal sent when diagram is loaded.</tooltip>
+                                <id>1</id>
+                            </Input>
+                            <Input>
+                                <name>onStart</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>2</nature>
+                                <inner>0</inner>
+                                <tooltip>Start the timer with a specified period value (in seconds)</tooltip>
+                                <id>2</id>
+                            </Input>
+                            <Input>
+                                <name>onStop</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>3</nature>
+                                <inner>0</inner>
+                                <tooltip>Stop the timer</tooltip>
+                                <id>3</id>
+                            </Input>
+                            <Output>
+                                <name>timerOutput</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>2</nature>
+                                <inner>0</inner>
+                                <tooltip>send a bang after a certain amount of time.&#x0A;Warning: not outputted if stopped before time lapse.</tooltip>
+                                <id>4</id>
+                            </Output>
+                            <Parameter>
+                                <name>timeout</name>
+                                <inherits_from_parent>0</inherits_from_parent>
+                                <content_type>2</content_type>
+                                <value>5</value>
+                                <default_value>1</default_value>
+                                <min>0</min>
+                                <max>5000</max>
+                                <tooltip>After how many seconds the box will timeout and stimulate its ouput.</tooltip>
+                                <id>5</id>
+                            </Parameter>
+                        </Box>
+                        <Box>
+                            <name>SpeechReco</name>
+                            <robot></robot>
+                            <id>14</id>
+                            <tooltip>Speech recognition box !&#x0A;This box has 2 event outputs :&#x0A;- a word has been understood, and the trust associated is enough to transmit this word&#x0A;- nothing has been understood, or the trust was not high enough (see inside the box to set the threshold, between 0 and 1)</tooltip>
+                            <bitmap_expanded>1</bitmap_expanded>
+                            <Bitmaps>
+                                <bitmap>media/images/box/interaction/ear.png</bitmap>
+                            </Bitmaps>
+                            <plugin></plugin>
+                            <x>65</x>
+                            <y>127</y>
                             <script>
                                 <content>
                                     <![CDATA[class MyClass(GeneratedClass):
     def __init__(self):
         GeneratedClass.__init__(self)
-
+        self.asr = ALProxy("ALSpeechRecognition")
 
     def onLoad(self):
         #~ puts code for box initialization here
+        self.initializing = False
         pass
 
     def onUnload(self):
@@ -13116,19 +12725,23 @@ class MyClass(GeneratedClass):
         pass
 
     def onInput_onStart(self):
-       self.log("TITI")
-       self.log(str(ALMemory.getData("LandmarkDetected", 0)))
-       while len(ALMemory.getData("LandmarkDetected", 0))==0 or not (-0.2>ALMemory.getData("LandmarkDetected", 0)[1][0][0][1]>0.2):
-          if len(ALMemory.getData("LandmarkDetected", 0)) != 0:
-              self.log(str(ALMemory.getData("LandmarkDetected", 0)[1][0][0][1]))
-          self.log("Youou")
-          ALMotion.changeAngles("HeadYaw",-0.25,0.1)
-       self.log("OK")
-
+        if(self.initializing):
+            return
+            
+        self.initializing = True
         
+        self.asr.setVisualExpression(self.getParameter("visual expression"))
+        self.asr.setLanguage(self.getParameter("language"))
+        self.asr.setWordListAsVocabulary( self.getParameter("word list").split(';') )
+
+        self.initializing = False
+        self.onInitialized()
+        pass
 
     def onInput_onStop(self):
-        self.onUnload() #~ it is usually a good idea to call onUnload of this box in a onStop method, as the code written in onUnload is used to finish the working of the box as well
+        while(self.initializing):
+            time.sleep(100)
+        self.onUnload() #~ call onUnload of this box
         pass]]>
 </content>
                                 <language>4</language>
@@ -13161,88 +12774,830 @@ class MyClass(GeneratedClass):
                                 <id>3</id>
                             </Input>
                             <Input>
-                                <name>onDetect</name>
+                                <name>WordRecognized</name>
                                 <type>0</type>
                                 <type_size>1</type_size>
                                 <nature>4</nature>
-                                <stm_value_name>extractors/allandmarkdetection/landmarkdetected</stm_value_name>
-                                <inner>1</inner>
-                                <tooltip></tooltip>
-                                <id>4</id>
-                            </Input>
-                            <Input>
-                                <name>extractors/allandmarkdetection/landmarkdetected</name>
-                                <type>0</type>
-                                <type_size>1</type_size>
-                                <nature>4</nature>
-                                <stm_value_name>extractors/allandmarkdetection/landmarkdetected</stm_value_name>
+                                <stm_value_name>WordRecognized</stm_value_name>
                                 <inner>1</inner>
                                 <tooltip>Connected to ALMemory. Will be stimulated every time the value subscribed to changes, respecting the refresh period.</tooltip>
-                                <id>5</id>
+                                <id>4</id>
                             </Input>
                             <Output>
-                                <name>onStopped</name>
+                                <name>onInitialized</name>
                                 <type>1</type>
                                 <type_size>1</type_size>
-                                <nature>1</nature>
+                                <nature>2</nature>
                                 <inner>0</inner>
-                                <tooltip>Signal sent when box behavior is finished.</tooltip>
+                                <tooltip>Signal sent when box behavior is initialized.</tooltip>
+                                <id>5</id>
+                            </Output>
+                            <Output>
+                                <name>wordRecognized</name>
+                                <type>3</type>
+                                <type_size>1</type_size>
+                                <nature>2</nature>
+                                <inner>0</inner>
+                                <tooltip>word recognized with enough trust. Can be connected directly to a dispatcher.</tooltip>
                                 <id>6</id>
                             </Output>
+                            <Output>
+                                <name>onNothing</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>2</nature>
+                                <inner>0</inner>
+                                <tooltip>Nothing has been understood during last process.</tooltip>
+                                <id>7</id>
+                            </Output>
+                            <Parameter>
+                                <name>word list</name>
+                                <inherits_from_parent>0</inherits_from_parent>
+                                <content_type>3</content_type>
+                                <value>oui;non</value>
+                                <default_value>yes;no</default_value>
+                                <custom_choice>0</custom_choice>
+                                <tooltip>Separate words by &apos;;&apos;</tooltip>
+                                <id>8</id>
+                            </Parameter>
+                            <Parameter>
+                                <name>language</name>
+                                <inherits_from_parent>1</inherits_from_parent>
+                                <content_type>3</content_type>
+                                <value>French</value>
+                                <default_value>English</default_value>
+                                <custom_choice>1</custom_choice>
+                                <Choices>
+                                    <Choice>
+                                        <value>English</value>
+                                    </Choice>
+                                    <Choice>
+                                        <value>French</value>
+                                    </Choice>
+                                </Choices>
+                                <tooltip>In which language the recognition algorithm is going to run ?</tooltip>
+                                <id>9</id>
+                            </Parameter>
+                            <Parameter>
+                                <name>threshold</name>
+                                <inherits_from_parent>1</inherits_from_parent>
+                                <content_type>2</content_type>
+                                <value>0.3</value>
+                                <default_value>0.4</default_value>
+                                <min>0</min>
+                                <max>1</max>
+                                <tooltip>If the trust associated with last word recognized is below this threshold, robot will consider that it did not recognize the word. Has to be between 0 and 1.</tooltip>
+                                <id>10</id>
+                            </Parameter>
+                            <Parameter>
+                                <name>visual expression</name>
+                                <inherits_from_parent>1</inherits_from_parent>
+                                <content_type>0</content_type>
+                                <value>1</value>
+                                <default_value>1</default_value>
+                                <tooltip>Use the LEDs to show feedback from the robot while doing the recognition.</tooltip>
+                                <id>11</id>
+                            </Parameter>
+                            <Timeline>
+                                <fps>10</fps>
+                                <resources_acquisition>0</resources_acquisition>
+                                <size>300</size>
+                                <enable>0</enable>
+                                <start_frame>0</start_frame>
+                                <end_frame>-1</end_frame>
+                                <Waveforms />
+                                <scale>10</scale>
+                                <watches />
+                                <BehaviorLayer>
+                                    <name>behavior_layer1</name>
+                                    <mute>0</mute>
+                                    <BehaviorKeyframe>
+                                        <name>keyframe1</name>
+                                        <index>1</index>
+                                        <bitmap>media/images/box/interaction/say.png</bitmap>
+                                        <Diagram>
+                                            <scale>-1</scale>
+                                            <Box>
+                                                <name>ProcessWord</name>
+                                                <robot></robot>
+                                                <id>1</id>
+                                                <tooltip>Enter tooltip here</tooltip>
+                                                <bitmap_expanded>1</bitmap_expanded>
+                                                <Bitmaps>
+                                                    <bitmap>media/images/box/box-diagram.png</bitmap>
+                                                </Bitmaps>
+                                                <plugin></plugin>
+                                                <x>187</x>
+                                                <y>54</y>
+                                                <script>
+                                                    <content>
+                                                        <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #~ puts code for box initialization here
+        pass
+
+    def onUnload(self):
+        #~ puts code for box cleanup here
+        pass
+
+    def onInput_onStart(self, p):
+        if(len(p) > 1):
+            if(p[1] >= self.getParameter("threshold")):
+                self.onWord(p[0]) #~ activate output of the box
+            else:
+                self.onNothing()
+        else:
+            self.onNothing()]]>
+</content>
+                                                    <language>4</language>
+                                                </script>
+                                                <Input>
+                                                    <name>onLoad</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>0</nature>
+                                                    <inner>1</inner>
+                                                    <tooltip>Signal sent when diagram is loaded.</tooltip>
+                                                    <id>1</id>
+                                                </Input>
+                                                <Input>
+                                                    <name>onStart</name>
+                                                    <type>0</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>2</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
+                                                    <id>2</id>
+                                                </Input>
+                                                <Output>
+                                                    <name>onWord</name>
+                                                    <type>3</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>1</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip>Signal sent when box behavior is finished.</tooltip>
+                                                    <id>3</id>
+                                                </Output>
+                                                <Output>
+                                                    <name>onNothing</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>1</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip></tooltip>
+                                                    <id>4</id>
+                                                </Output>
+                                            </Box>
+                                            <Link>
+                                                <inputowner>1</inputowner>
+                                                <indexofinput>2</indexofinput>
+                                                <outputowner>0</outputowner>
+                                                <indexofoutput>4</indexofoutput>
+                                            </Link>
+                                            <Link>
+                                                <inputowner>0</inputowner>
+                                                <indexofinput>6</indexofinput>
+                                                <outputowner>1</outputowner>
+                                                <indexofoutput>3</indexofoutput>
+                                            </Link>
+                                            <Link>
+                                                <inputowner>0</inputowner>
+                                                <indexofinput>7</indexofinput>
+                                                <outputowner>1</outputowner>
+                                                <indexofoutput>4</indexofoutput>
+                                            </Link>
+                                        </Diagram>
+                                    </BehaviorKeyframe>
+                                </BehaviorLayer>
+                                <ActuatorList />
+                            </Timeline>
+                        </Box>
+                        <Box>
+                            <name>OldBox</name>
+                            <robot></robot>
+                            <id>2</id>
+                            <tooltip>Enter tooltip here </tooltip>
+                            <bitmap_expanded>1</bitmap_expanded>
+                            <Bitmaps>
+                                <bitmap>media/images/box/box-diagram.png</bitmap>
+                            </Bitmaps>
+                            <plugin></plugin>
+                            <x>545</x>
+                            <y>5</y>
+                            <script>
+                                <content>
+                                    <![CDATA[]]>
+</content>
+                                <language>4</language>
+                            </script>
+                            <Input>
+                                <name>onLoad</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>0</nature>
+                                <inner>1</inner>
+                                <tooltip>Signal sent when diagram is loaded.</tooltip>
+                                <id>1</id>
+                            </Input>
+                            <Timeline>
+                                <fps>10</fps>
+                                <resources_acquisition>0</resources_acquisition>
+                                <size>300</size>
+                                <enable>0</enable>
+                                <start_frame>0</start_frame>
+                                <end_frame>-1</end_frame>
+                                <Waveforms />
+                                <scale>10</scale>
+                                <watches />
+                                <BehaviorLayer>
+                                    <name>behavior_layer1</name>
+                                    <mute>0</mute>
+                                    <BehaviorKeyframe>
+                                        <name>keyframe1</name>
+                                        <index>1</index>
+                                        <bitmap></bitmap>
+                                        <Diagram>
+                                            <scale>-1</scale>
+                                            <Box>
+                                                <name>NaoMark</name>
+                                                <robot></robot>
+                                                <id>1</id>
+                                                <tooltip>Start naoMark extractor and subscribe on mark value</tooltip>
+                                                <bitmap_expanded>1</bitmap_expanded>
+                                                <Bitmaps>
+                                                    <bitmap>media/images/box/interaction/uramark.png</bitmap>
+                                                </Bitmaps>
+                                                <plugin></plugin>
+                                                <x>513</x>
+                                                <y>29</y>
+                                                <script>
+                                                    <content>
+                                                        <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #~ puts code for box initialization here
+        pass
+
+    def onUnload(self):
+        #~ puts code for box cleanup here
+        pass
+
+    def onInput_onStart(self):
+        self.gotoAndStop(1)
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload()
+        self.onStopped()]]>
+</content>
+                                                    <language>4</language>
+                                                </script>
+                                                <Input>
+                                                    <name>onLoad</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>0</nature>
+                                                    <inner>1</inner>
+                                                    <tooltip>Signal sent when diagram is loaded.</tooltip>
+                                                    <id>1</id>
+                                                </Input>
+                                                <Input>
+                                                    <name>onStart</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>2</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
+                                                    <id>2</id>
+                                                </Input>
+                                                <Input>
+                                                    <name>onStop</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>3</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
+                                                    <id>3</id>
+                                                </Input>
+                                                <Input>
+                                                    <name>LandmarkDetected</name>
+                                                    <type>0</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>4</nature>
+                                                    <stm_value_name>LandmarkDetected</stm_value_name>
+                                                    <inner>1</inner>
+                                                    <tooltip>Connected to ALMemory. Will be stimulated every time the value subscribed to changes, respecting the refresh period.</tooltip>
+                                                    <id>4</id>
+                                                </Input>
+                                                <Output>
+                                                    <name>onStopped</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>1</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip>Signal sent when box behavior is finished.</tooltip>
+                                                    <id>5</id>
+                                                </Output>
+                                                <Output>
+                                                    <name>onMarkDetected</name>
+                                                    <type>2</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>2</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip>A mark has been detected !&#x0A;Send the mark&apos;s number !</tooltip>
+                                                    <id>6</id>
+                                                </Output>
+                                                <Output>
+                                                    <name>onNoMark</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>2</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip>No mark ! :-(</tooltip>
+                                                    <id>7</id>
+                                                </Output>
+                                                <Timeline>
+                                                    <fps>10</fps>
+                                                    <resources_acquisition>0</resources_acquisition>
+                                                    <size>300</size>
+                                                    <enable>0</enable>
+                                                    <start_frame>0</start_frame>
+                                                    <end_frame>-1</end_frame>
+                                                    <Waveforms />
+                                                    <scale>10</scale>
+                                                    <watches />
+                                                    <BehaviorLayer>
+                                                        <name>behavior_layer1</name>
+                                                        <mute>0</mute>
+                                                        <BehaviorKeyframe>
+                                                            <name>keyframe1</name>
+                                                            <index>1</index>
+                                                            <bitmap></bitmap>
+                                                            <Diagram>
+                                                                <scale>-1</scale>
+                                                                <Box>
+                                                                    <name>getMarksList</name>
+                                                                    <robot></robot>
+                                                                    <id>1</id>
+                                                                    <tooltip>Returns the list of marks detected (empty if no mark)</tooltip>
+                                                                    <bitmap_expanded>1</bitmap_expanded>
+                                                                    <Bitmaps>
+                                                                        <bitmap>media/images/box/box-script.png</bitmap>
+                                                                    </Bitmaps>
+                                                                    <plugin></plugin>
+                                                                    <x>139</x>
+                                                                    <y>75</y>
+                                                                    <script>
+                                                                        <content>
+                                                                            <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onUnload(self):
+        #puts code for box cleanup here
+        pass
+
+    def onInput_onStart(self, p):
+        markIDs = []
+        # Generic Extractor output format:
+        # p = [ [timeStampMaj, timeStampMin], [ tag0, tag1, ... tagN] ] with tag = [ shapeInfo, moreInfo ]
+        if(len(p) > 0):
+            markInfoArray = p[1]
+            self.log(str(markInfoArray))
+            
+            
+            for markInfo in markInfoArray:
+                moreInfo = markInfo[1]
+                # moreInfo = [ landmarkID ]
+                markIDs.append(moreInfo[0])
+                
+        self.onStopped(markIDs)
+
+    def onInput_onStop(self):
+        pass]]>
+</content>
+                                                                        <language>4</language>
+                                                                    </script>
+                                                                    <Input>
+                                                                        <name>onLoad</name>
+                                                                        <type>1</type>
+                                                                        <type_size>1</type_size>
+                                                                        <nature>0</nature>
+                                                                        <inner>1</inner>
+                                                                        <tooltip>Signal sent when diagram is loaded.</tooltip>
+                                                                        <id>1</id>
+                                                                    </Input>
+                                                                    <Input>
+                                                                        <name>onStart</name>
+                                                                        <type>0</type>
+                                                                        <type_size>1</type_size>
+                                                                        <nature>2</nature>
+                                                                        <inner>0</inner>
+                                                                        <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
+                                                                        <id>2</id>
+                                                                    </Input>
+                                                                    <Input>
+                                                                        <name>onStop</name>
+                                                                        <type>1</type>
+                                                                        <type_size>1</type_size>
+                                                                        <nature>3</nature>
+                                                                        <inner>0</inner>
+                                                                        <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
+                                                                        <id>3</id>
+                                                                    </Input>
+                                                                    <Output>
+                                                                        <name>onStopped</name>
+                                                                        <type>0</type>
+                                                                        <type_size>1</type_size>
+                                                                        <nature>1</nature>
+                                                                        <inner>0</inner>
+                                                                        <tooltip>Signal sent when box behavior is finished.</tooltip>
+                                                                        <id>4</id>
+                                                                    </Output>
+                                                                </Box>
+                                                                <Box>
+                                                                    <name>processList</name>
+                                                                    <robot></robot>
+                                                                    <id>2</id>
+                                                                    <tooltip>This box will process the list. It will return a mark ID if at least one has been detected, or the noMark output if no mark has been detected. &#x0A;Note that the ID output will only be stimulated once, as long as the ID does not change. It allows a very easy integration from the upper level.</tooltip>
+                                                                    <bitmap_expanded>1</bitmap_expanded>
+                                                                    <Bitmaps>
+                                                                        <bitmap>media/images/box/interaction/uramark.png</bitmap>
+                                                                    </Bitmaps>
+                                                                    <plugin></plugin>
+                                                                    <x>332</x>
+                                                                    <y>94</y>
+                                                                    <script>
+                                                                        <content>
+                                                                            <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+        
+    def onLoad(self):
+        self.nNumLastDetected = -1;
+        
+    def onUnload(self):
+        #puts code for box cleanup here
+        pass
+
+    def onInput_onStart(self, p):
+        if(len(p) == 0):
+            self.nNumLastDetected = -1
+            self.onNoMark();
+        else:
+            if(self.nNumLastDetected != p[0]):
+                #only stimulate output if a mark wasn't detected before !
+                self.nNumLastDetected = p[0]
+                self.onMarkDetected( self.nNumLastDetected )
+            
+    def onInput_onStop(self):
+        pass]]>
+</content>
+                                                                        <language>4</language>
+                                                                    </script>
+                                                                    <Input>
+                                                                        <name>onLoad</name>
+                                                                        <type>1</type>
+                                                                        <type_size>1</type_size>
+                                                                        <nature>0</nature>
+                                                                        <inner>1</inner>
+                                                                        <tooltip>Signal sent when diagram is loaded.</tooltip>
+                                                                        <id>1</id>
+                                                                    </Input>
+                                                                    <Input>
+                                                                        <name>onStart</name>
+                                                                        <type>0</type>
+                                                                        <type_size>1</type_size>
+                                                                        <nature>2</nature>
+                                                                        <inner>0</inner>
+                                                                        <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
+                                                                        <id>2</id>
+                                                                    </Input>
+                                                                    <Input>
+                                                                        <name>onStop</name>
+                                                                        <type>1</type>
+                                                                        <type_size>1</type_size>
+                                                                        <nature>3</nature>
+                                                                        <inner>0</inner>
+                                                                        <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
+                                                                        <id>3</id>
+                                                                    </Input>
+                                                                    <Output>
+                                                                        <name>onMarkDetected</name>
+                                                                        <type>2</type>
+                                                                        <type_size>1</type_size>
+                                                                        <nature>2</nature>
+                                                                        <inner>0</inner>
+                                                                        <tooltip>a mark has been detected !&#x0A;Send the mark&apos;s number !</tooltip>
+                                                                        <id>4</id>
+                                                                    </Output>
+                                                                    <Output>
+                                                                        <name>onNoMark</name>
+                                                                        <type>1</type>
+                                                                        <type_size>1</type_size>
+                                                                        <nature>2</nature>
+                                                                        <inner>0</inner>
+                                                                        <tooltip>No mark detected :-(</tooltip>
+                                                                        <id>5</id>
+                                                                    </Output>
+                                                                </Box>
+                                                                <Link>
+                                                                    <inputowner>0</inputowner>
+                                                                    <indexofinput>7</indexofinput>
+                                                                    <outputowner>2</outputowner>
+                                                                    <indexofoutput>5</indexofoutput>
+                                                                </Link>
+                                                                <Link>
+                                                                    <inputowner>0</inputowner>
+                                                                    <indexofinput>6</indexofinput>
+                                                                    <outputowner>2</outputowner>
+                                                                    <indexofoutput>4</indexofoutput>
+                                                                </Link>
+                                                                <Link>
+                                                                    <inputowner>1</inputowner>
+                                                                    <indexofinput>2</indexofinput>
+                                                                    <outputowner>0</outputowner>
+                                                                    <indexofoutput>4</indexofoutput>
+                                                                </Link>
+                                                                <Link>
+                                                                    <inputowner>2</inputowner>
+                                                                    <indexofinput>2</indexofinput>
+                                                                    <outputowner>1</outputowner>
+                                                                    <indexofoutput>4</indexofoutput>
+                                                                </Link>
+                                                            </Diagram>
+                                                        </BehaviorKeyframe>
+                                                    </BehaviorLayer>
+                                                    <ActuatorList />
+                                                </Timeline>
+                                            </Box>
+                                            <Box>
+                                                <name>DetecteMark</name>
+                                                <robot></robot>
+                                                <id>2</id>
+                                                <tooltip>Enter tooltip here</tooltip>
+                                                <bitmap_expanded>1</bitmap_expanded>
+                                                <Bitmaps>
+                                                    <bitmap>media/images/box/box-diagram.png</bitmap>
+                                                </Bitmaps>
+                                                <plugin></plugin>
+                                                <x>408</x>
+                                                <y>33</y>
+                                                <script>
+                                                    <content>
+                                                        <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+        self.loop = True
+        self.miss = 0
+    def onLoad(self):
+        #~ puts code for box initialization here
+        pass
+
+    def onUnload(self):
+        #~ puts code for box cleanup here
+        self.loop = False
+
+    def onInput_onStart(self):
+        time.sleep(1)
+        while self.loop:
+           self.log(self.miss)
+           self.log(ALMemory.getData("LandmarkDetected", 0))
+           time.sleep(0.1)
+           if len(ALMemory.getData("LandmarkDetected", 0)) == 0:
+               self.miss = self.miss + 1
+           else:
+               self.miss = 0
+           if self.miss == 10:
+               break
+  
+        self.log("STOP IT")
+        self.onStopped()
+
+    def onInput_onStop(self):
+        self.onUnload() #~ it is recommanded to call onUnload of this box in a onStop method, as the code written in onUnload is used to stop the box as well
+        pass
+
+    def onInput_markDetect(self, p):
+        pass]]>
+</content>
+                                                    <language>4</language>
+                                                </script>
+                                                <Input>
+                                                    <name>onLoad</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>0</nature>
+                                                    <inner>1</inner>
+                                                    <tooltip>Signal sent when diagram is loaded.</tooltip>
+                                                    <id>1</id>
+                                                </Input>
+                                                <Input>
+                                                    <name>onStart</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>2</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
+                                                    <id>2</id>
+                                                </Input>
+                                                <Input>
+                                                    <name>onStop</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>3</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
+                                                    <id>3</id>
+                                                </Input>
+                                                <Output>
+                                                    <name>onStopped</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>1</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip>Signal sent when box behavior is finished.</tooltip>
+                                                    <id>4</id>
+                                                </Output>
+                                            </Box>
+                                            <Box>
+                                                <name>Enter name here</name>
+                                                <robot></robot>
+                                                <id>3</id>
+                                                <tooltip>Enter tooltip here</tooltip>
+                                                <bitmap_expanded>1</bitmap_expanded>
+                                                <Bitmaps>
+                                                    <bitmap>media/images/box/box-diagram.png</bitmap>
+                                                </Bitmaps>
+                                                <plugin></plugin>
+                                                <x>450</x>
+                                                <y>82</y>
+                                                <script>
+                                                    <content>
+                                                        <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+
+    def onLoad(self):
+        #~ puts code for box initialization here
+        pass
+
+    def onUnload(self):
+        #~ puts code for box cleanup here
+        pass
+
+    def onInput_onStart(self):
+       self.log("TITI")
+       self.log(str(ALMemory.getData("LandmarkDetected", 0)))
+       while len(ALMemory.getData("LandmarkDetected", 0))==0 or not (-0.2>ALMemory.getData("LandmarkDetected", 0)[1][0][0][1]>0.2):
+          if len(ALMemory.getData("LandmarkDetected", 0)) != 0:
+              self.log(str(ALMemory.getData("LandmarkDetected", 0)[1][0][0][1]))
+          self.log("Youou")
+          ALMotion.changeAngles("HeadYaw",-0.25,0.1)
+       self.log("OK")
+
+        
+
+    def onInput_onStop(self):
+        self.onUnload() #~ it is usually a good idea to call onUnload of this box in a onStop method, as the code written in onUnload is used to finish the working of the box as well
+        pass]]>
+</content>
+                                                    <language>4</language>
+                                                </script>
+                                                <Input>
+                                                    <name>onLoad</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>0</nature>
+                                                    <inner>1</inner>
+                                                    <tooltip>Signal sent when diagram is loaded.</tooltip>
+                                                    <id>1</id>
+                                                </Input>
+                                                <Input>
+                                                    <name>onStart</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>2</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
+                                                    <id>2</id>
+                                                </Input>
+                                                <Input>
+                                                    <name>onStop</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>3</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
+                                                    <id>3</id>
+                                                </Input>
+                                                <Input>
+                                                    <name>onDetect</name>
+                                                    <type>0</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>4</nature>
+                                                    <stm_value_name>extractors/allandmarkdetection/landmarkdetected</stm_value_name>
+                                                    <inner>1</inner>
+                                                    <tooltip></tooltip>
+                                                    <id>4</id>
+                                                </Input>
+                                                <Input>
+                                                    <name>extractors/allandmarkdetection/landmarkdetected</name>
+                                                    <type>0</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>4</nature>
+                                                    <stm_value_name>extractors/allandmarkdetection/landmarkdetected</stm_value_name>
+                                                    <inner>1</inner>
+                                                    <tooltip>Connected to ALMemory. Will be stimulated every time the value subscribed to changes, respecting the refresh period.</tooltip>
+                                                    <id>5</id>
+                                                </Input>
+                                                <Output>
+                                                    <name>onStopped</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>1</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip>Signal sent when box behavior is finished.</tooltip>
+                                                    <id>6</id>
+                                                </Output>
+                                            </Box>
+                                        </Diagram>
+                                    </BehaviorKeyframe>
+                                </BehaviorLayer>
+                                <ActuatorList />
+                            </Timeline>
                         </Box>
                         <Link>
-                            <inputowner>4</inputowner>
+                            <inputowner>5</inputowner>
                             <indexofinput>3</indexofinput>
                             <outputowner>0</outputowner>
                             <indexofoutput>2</indexofoutput>
                         </Link>
                         <Link>
-                            <inputowner>5</inputowner>
+                            <inputowner>8</inputowner>
                             <indexofinput>2</indexofinput>
-                            <outputowner>3</outputowner>
-                            <indexofoutput>4</indexofoutput>
-                        </Link>
-                        <Link>
-                            <inputowner>6</inputowner>
-                            <indexofinput>2</indexofinput>
-                            <outputowner>5</outputowner>
-                            <indexofoutput>4</indexofoutput>
-                        </Link>
-                        <Link>
-                            <inputowner>3</inputowner>
-                            <indexofinput>2</indexofinput>
-                            <outputowner>1</outputowner>
-                            <indexofoutput>5</indexofoutput>
-                        </Link>
-                        <Link>
-                            <inputowner>11</inputowner>
-                            <indexofinput>2</indexofinput>
-                            <outputowner>8</outputowner>
-                            <indexofoutput>4</indexofoutput>
-                        </Link>
-                        <Link>
-                            <inputowner>9</inputowner>
-                            <indexofinput>2</indexofinput>
-                            <outputowner>11</outputowner>
-                            <indexofoutput>4</indexofoutput>
-                        </Link>
-                        <Link>
-                            <inputowner>13</inputowner>
-                            <indexofinput>2</indexofinput>
-                            <outputowner>12</outputowner>
+                            <outputowner>4</outputowner>
                             <indexofoutput>4</indexofoutput>
                         </Link>
                         <Link>
                             <inputowner>12</inputowner>
                             <indexofinput>2</indexofinput>
+                            <outputowner>8</outputowner>
+                            <indexofoutput>4</indexofoutput>
+                        </Link>
+                        <Link>
+                            <inputowner>6</inputowner>
+                            <indexofinput>2</indexofinput>
+                            <outputowner>3</outputowner>
+                            <indexofoutput>4</indexofoutput>
+                        </Link>
+                        <Link>
+                            <inputowner>9</inputowner>
+                            <indexofinput>2</indexofinput>
+                            <outputowner>6</outputowner>
+                            <indexofoutput>4</indexofoutput>
+                        </Link>
+                        <Link>
+                            <inputowner>11</inputowner>
+                            <indexofinput>2</indexofinput>
+                            <outputowner>7</outputowner>
+                            <indexofoutput>4</indexofoutput>
+                        </Link>
+                        <Link>
+                            <inputowner>7</inputowner>
+                            <indexofinput>2</indexofinput>
                             <outputowner>9</outputowner>
                             <indexofoutput>4</indexofoutput>
                         </Link>
                         <Link>
-                            <inputowner>8</inputowner>
+                            <inputowner>3</inputowner>
                             <indexofinput>2</indexofinput>
-                            <outputowner>6</outputowner>
+                            <outputowner>12</outputowner>
                             <indexofoutput>4</indexofoutput>
+                        </Link>
+                        <Link>
+                            <inputowner>4</inputowner>
+                            <indexofinput>2</indexofinput>
+                            <outputowner>1</outputowner>
+                            <indexofoutput>5</indexofoutput>
+                        </Link>
+                        <Link>
+                            <inputowner>14</inputowner>
+                            <indexofinput>2</indexofinput>
+                            <outputowner>0</outputowner>
+                            <indexofoutput>2</indexofoutput>
+                        </Link>
+                        <Link>
+                            <inputowner>1</inputowner>
+                            <indexofinput>2</indexofinput>
+                            <outputowner>14</outputowner>
+                            <indexofoutput>6</indexofoutput>
                         </Link>
                     </Diagram>
                 </BehaviorKeyframe>

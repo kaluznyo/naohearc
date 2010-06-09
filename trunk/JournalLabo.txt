@@ -17,14 +17,14 @@ L'autre étapes consiste a faire regardé Nao dans son champs de vision (uniquem
 
 Vendredi 28 Mai : Mon programme est encore un peu hasardeux, et défois des gros érreur de direction sont faite. Il y a des probléme avec le GetData, qui ne récupére pas assé vite la derniére valeurs. J'ai du préparé le nao pour le festival de robotic, J'ai donc remis la version 1.3, car elle chauffe moin rapidement, j'ai du arreter vers midi, car le robot étais en 1.3 et déja pret.
 
-FESTIVAL DE ROBOT ->OK
+FESTIVAL DE ROBOT 
 
 Lundi 31 Mai
 
 PV avec M. Amiguet, j'ai remis Nao a jours, j'ai éfféctué des messure pour connaitre l'angle de la camera par rapport au sol : dans la position inital (position camera-sol : 45.5cm, pour un distance de 41.2, le deltax = 0) l'angle dest donc de 42.1 degrés.
 
 Mardi 1 juin
-Le calcule de la distance fonctionne, j'ai aussi pu remplacé la fonction de recherche affiné, en mettant directmeent le delta x comme ange de rotation de la téte. Cela fait gagner du temps. Certain moment, le robot n'éfféctue pas la bonne rotation, ou dévie. La distance est bian calculé et le robot s'arrete presque toujours sur la marque, a 3 cm de précision environs.
+Le calcule de la distance fonctionne, j'ai aussi pu remplacé la fonction de recherche affiné, en mettant directmeent le delta x comme angle de rotation de la téte. Cela fait gagner du temps. Certain moment, le robot n'éfféctue pas la bonne rotation, ou dévie. La distance est bian calculé et le robot s'arrete presque toujours sur la marque, a 3 cm de précision environs.
 J'ai refactorisé le code pour une meilleur lecture.
 
 Mercredi 2 juin
@@ -37,5 +37,11 @@ Vendredi 4 Juin :
 
 Malade ...
 
-Lundi 5 juin : 
+Lundi 6 juin : 
 Arrivé Midi : Création de la gestion des signes multiples. Probléme, la nao ne va pas a la marque, raison indeterminé pour le moment. Bug, il trouve bcp de valeures inchoérente
+
+Mardi 7 Juin:
+
+Plusieur probléme a résoudre : Déviation, NaoMark a valeurs aléatoire, mouvement de rammasage défois ignoré. Création du premier module, il prend juste une photo, fait en C++ remote.
+Correction de signe multiple, il marche vers la marque
+

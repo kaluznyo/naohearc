@@ -37,11 +37,16 @@ Vendredi 4 Juin :
 
 Malade ...
 
-Lundi 6 juin : 
+Lundi 7 juin : 
 Arrivé Midi : Création de la gestion des signes multiples. Probléme, la nao ne va pas a la marque, raison indeterminé pour le moment. Bug, il trouve bcp de valeures inchoérente
 
-Mardi 7 Juin:
+Mardi 8 Juin:
 
 Plusieur probléme a résoudre : Déviation, NaoMark a valeurs aléatoire, mouvement de rammasage défois ignoré. Création du premier module, il prend juste une photo, fait en C++ remote.
 Correction de signe multiple, il marche vers la marque
+
+
+Mercredi 9 juin :
+
+Création du module de détéction d'image. Utilisation D'Harpia pour shématisé puis generer du code openCV. J'arrive a récupérer la position d'un cube sur l'image, prise quand nao se penche. Je doit maintenant trouvé un angle comme pour les nao Mark, il y a peut étre une solution dans le module ALVision, qui propose des méthode permétant de trouver l'angle en fonction de l'image, je ne les ai pas encore bien compris. J'ai posté sur le forum pour savoir si je part dans la bonne direction. PV avec Amiguet,
 

@@ -61,5 +61,7 @@ Le module de repérage d'un objet me renvoie bien l'angle x et y par rapport a l
 
 Lundi 14 Juin : Réfléxion sur le calcule de la position de l'objet, afin de mettre le bras ou il faut, premiére idée, juste utilisé l'angle donnée, par rapport a l'angle ou le cube se trouve a 0, et on peut donc placé la main au bon x et y. Reste le probléme de trouvé une surface prenable et de couleur uniforme. Le module de détéction est fini, et renvoie un couple de valeur dx et dy. J'ai aussi calculé l'angle de référence, avec les distance, comme pour les nao mark, je ne sais pas si elle me serviront pour le moment. Le probléme suivant est la prise en main, la main fait souvent glissé l'objet, l'angle d'attaque est surement a revoire, de plus il faudra voire si l'objet est accsésible avec le bras tendu, ou si on doit rentré le bras.
 
+Mardi 15 Juin : 
 
+J'ai fini le module pour attrapé l'objet, j'ai choisi une boulle de plastique rouge, et en la calant un peu, on arrive a l'attrapé, méme si défois cela rate. Il faut mtn détécté qu'elle doit étre la position par rapport a la mark. 
 

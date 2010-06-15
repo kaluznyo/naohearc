@@ -602,7 +602,7 @@ class MyClass(GeneratedClass):
                                             </Key>
                                             <Key>
                                                 <frame>52</frame>
-                                                <value>-55.7</value>
+                                                <value>-41</value>
                                                 <Tangents>
                                                     <Tangent>
                                                         <side>left</side>
@@ -671,7 +671,7 @@ class MyClass(GeneratedClass):
                                             </Key>
                                             <Key>
                                                 <frame>52</frame>
-                                                <value>-19.7</value>
+                                                <value>-10</value>
                                                 <Tangents>
                                                     <Tangent>
                                                         <side>left</side>
@@ -1154,7 +1154,7 @@ class MyClass(GeneratedClass):
                                             </Key>
                                             <Key>
                                                 <frame>52</frame>
-                                                <value>6</value>
+                                                <value>-7.5</value>
                                                 <Tangents>
                                                     <Tangent>
                                                         <side>left</side>
@@ -1223,7 +1223,7 @@ class MyClass(GeneratedClass):
                                             </Key>
                                             <Key>
                                                 <frame>52</frame>
-                                                <value>-94</value>
+                                                <value>-58</value>
                                                 <Tangents>
                                                     <Tangent>
                                                         <side>left</side>
@@ -1292,7 +1292,7 @@ class MyClass(GeneratedClass):
                                             </Key>
                                             <Key>
                                                 <frame>52</frame>
-                                                <value>-25</value>
+                                                <value>-115</value>
                                                 <Tangents>
                                                     <Tangent>
                                                         <side>left</side>
@@ -1430,7 +1430,7 @@ class MyClass(GeneratedClass):
                                             </Key>
                                             <Key>
                                                 <frame>52</frame>
-                                                <value>98.1727</value>
+                                                <value>104</value>
                                                 <Tangents>
                                                     <Tangent>
                                                         <side>left</side>
@@ -1499,7 +1499,7 @@ class MyClass(GeneratedClass):
                                             </Key>
                                             <Key>
                                                 <frame>52</frame>
-                                                <value>0</value>
+                                                <value>57</value>
                                                 <Tangents>
                                                     <Tangent>
                                                         <side>left</side>
@@ -2373,9 +2373,105 @@ class MyClass(GeneratedClass):
                             </Parameter>
                         </Box>
                         <Box>
-                            <name>SelectCam</name>
+                            <name>Enter name here</name>
                             <robot></robot>
                             <id>5</id>
+                            <tooltip>Enter tooltip here</tooltip>
+                            <bitmap_expanded>1</bitmap_expanded>
+                            <Bitmaps>
+                                <bitmap>media/images/box/box-diagram.png</bitmap>
+                            </Bitmaps>
+                            <plugin></plugin>
+                            <x>326</x>
+                            <y>393</y>
+                            <script>
+                                <content>
+                                    <![CDATA[import math
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        self.test  = ALProxy('ObjectDetect')
+        self.ok = True
+        pass
+
+    def onUnload(self):
+         self.ok = False
+    
+    def onInput_onStart(self):
+       # while self.ok:
+            self.test.registerToVIM(1,11,15)
+            i = self.test.takePhoto()
+            self.log( str(i))
+            self.test.unRegisterFromVIM()
+            self.log("X: "+ str(i[0]*180/math.pi))
+            self.log("Y: "+str(i[1]*180/math.pi))
+
+            if i[0] != -1:
+                ALMotion.openHand("RHand")
+                time.sleep(2)
+                ALMotion.setAngles("RShoulderRoll", -0.610865238+i[1], 0.3)
+                time.sleep(2)
+                ALMotion.setAngles("RShoulderPitch",0.699865238, 0.3)
+                time.sleep(2)
+                ALMotion.closeHand("RHand")
+                time.sleep(2)
+                #Check if hand is totaly closed, if it's closed, try again
+
+
+
+            
+
+
+    def onInput_onStop(self):
+        self.onUnload() #~ it is recommanded to call onUnload of this box in a onStop method, as the code written in onUnload is used to stop the box as well
+        pass]]>
+</content>
+                                <language>4</language>
+                            </script>
+                            <Input>
+                                <name>onLoad</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>0</nature>
+                                <inner>1</inner>
+                                <tooltip>Signal sent when diagram is loaded.</tooltip>
+                                <id>1</id>
+                            </Input>
+                            <Input>
+                                <name>onStart</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>2</nature>
+                                <inner>0</inner>
+                                <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
+                                <id>2</id>
+                            </Input>
+                            <Input>
+                                <name>onStop</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>3</nature>
+                                <inner>0</inner>
+                                <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
+                                <id>3</id>
+                            </Input>
+                            <Output>
+                                <name>onStopped</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>1</nature>
+                                <inner>0</inner>
+                                <tooltip>Signal sent when box behavior is finished.</tooltip>
+                                <id>4</id>
+                            </Output>
+                        </Box>
+                        <Box>
+                            <name>SelectCam</name>
+                            <robot></robot>
+                            <id>6</id>
                             <tooltip>Change the currently used camera.</tooltip>
                             <bitmap_expanded>1</bitmap_expanded>
                             <Bitmaps>
@@ -2444,85 +2540,6 @@ class MyClass(GeneratedClass):
                                 <nature>1</nature>
                                 <inner>0</inner>
                                 <tooltip>The change is finished.</tooltip>
-                                <id>4</id>
-                            </Output>
-                        </Box>
-                        <Box>
-                            <name>Enter name here</name>
-                            <robot></robot>
-                            <id>6</id>
-                            <tooltip>Enter tooltip here</tooltip>
-                            <bitmap_expanded>1</bitmap_expanded>
-                            <Bitmaps>
-                                <bitmap>media/images/box/box-diagram.png</bitmap>
-                            </Bitmaps>
-                            <plugin></plugin>
-                            <x>214</x>
-                            <y>177</y>
-                            <script>
-                                <content>
-                                    <![CDATA[class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self)
-
-    def onLoad(self):
-        self.test  = ALProxy('ObjectDetect')
-        self.ok = True
-        pass
-
-    def onUnload(self):
-         self.ok = False
-    
-    def onInput_onStart(self):
-        while self.ok :
-           self.test.registerToVIM(1,11,15)
-           i = self.test.takePhoto()
-           self.log( str(i))
-           self.test.unRegisterFromVIM()
-        
-        if i[0] != -1:
-            #set positiion of new mark
-
-    def onInput_onStop(self):
-        self.onUnload() #~ it is recommanded to call onUnload of this box in a onStop method, as the code written in onUnload is used to stop the box as well
-        pass]]>
-</content>
-                                <language>4</language>
-                            </script>
-                            <Input>
-                                <name>onLoad</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>0</nature>
-                                <inner>1</inner>
-                                <tooltip>Signal sent when diagram is loaded.</tooltip>
-                                <id>1</id>
-                            </Input>
-                            <Input>
-                                <name>onStart</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>2</nature>
-                                <inner>0</inner>
-                                <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
-                                <id>2</id>
-                            </Input>
-                            <Input>
-                                <name>onStop</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>3</nature>
-                                <inner>0</inner>
-                                <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
-                                <id>3</id>
-                            </Input>
-                            <Output>
-                                <name>onStopped</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>1</nature>
-                                <inner>0</inner>
-                                <tooltip>Signal sent when box behavior is finished.</tooltip>
                                 <id>4</id>
                             </Output>
                         </Box>
@@ -2676,8 +2693,8 @@ class MyClass(GeneratedClass):
                                 <bitmap>media/images/box/wait.png</bitmap>
                             </Bitmaps>
                             <plugin></plugin>
-                            <x>295</x>
-                            <y>447</y>
+                            <x>267</x>
+                            <y>476</y>
                             <script>
                                 <content>
                                     <![CDATA[import threading # opkg install python-threading
@@ -4114,7 +4131,7 @@ class MyClass(GeneratedClass):
                         <Box>
                             <name>NaoMark</name>
                             <robot></robot>
-                            <id>14</id>
+                            <id>11</id>
                             <tooltip>Start naoMark extractor and subscribe on mark value</tooltip>
                             <bitmap_expanded>1</bitmap_expanded>
                             <Bitmaps>
@@ -4429,15 +4446,15 @@ class MyClass(GeneratedClass):
                         <Box>
                             <name>StandAfterPick</name>
                             <robot></robot>
-                            <id>11</id>
+                            <id>12</id>
                             <tooltip>Enter tooltip here</tooltip>
                             <bitmap_expanded>1</bitmap_expanded>
                             <Bitmaps>
                                 <bitmap>media/images/box/box-diagram.png</bitmap>
                             </Bitmaps>
                             <plugin></plugin>
-                            <x>423</x>
-                            <y>433</y>
+                            <x>455</x>
+                            <y>491</y>
                             <script>
                                 <content>
                                     <![CDATA[]]>
@@ -13222,7 +13239,7 @@ class MyClass(GeneratedClass):
                         <Box>
                             <name>OldBox</name>
                             <robot></robot>
-                            <id>12</id>
+                            <id>13</id>
                             <tooltip>Enter tooltip here </tooltip>
                             <bitmap_expanded>1</bitmap_expanded>
                             <Bitmaps>
@@ -13268,7 +13285,7 @@ class MyClass(GeneratedClass):
                                             <Box>
                                                 <name>NaoMark</name>
                                                 <robot></robot>
-                                                <id>3</id>
+                                                <id>1</id>
                                                 <tooltip>Start naoMark extractor and subscribe on mark value</tooltip>
                                                 <bitmap_expanded>1</bitmap_expanded>
                                                 <Bitmaps>
@@ -13583,7 +13600,7 @@ class MyClass(GeneratedClass):
                                             <Box>
                                                 <name>DetecteMark</name>
                                                 <robot></robot>
-                                                <id>1</id>
+                                                <id>2</id>
                                                 <tooltip>Enter tooltip here</tooltip>
                                                 <bitmap_expanded>1</bitmap_expanded>
                                                 <Bitmaps>
@@ -13672,7 +13689,7 @@ class MyClass(GeneratedClass):
                                             <Box>
                                                 <name>Enter name here</name>
                                                 <robot></robot>
-                                                <id>2</id>
+                                                <id>3</id>
                                                 <tooltip>Enter tooltip here</tooltip>
                                                 <bitmap_expanded>1</bitmap_expanded>
                                                 <Bitmaps>
@@ -13780,7 +13797,7 @@ class MyClass(GeneratedClass):
                         <Box>
                             <name>WalkTo</name>
                             <robot></robot>
-                            <id>13</id>
+                            <id>14</id>
                             <tooltip>This Box is for make NAO walk to a point relative to his current location &#x0A;&#x0A;Box Extra Parameter the new position:&#x0A;X for front/rear motion (metre)&#x0A;Y for lateral motion (meter)&#x0A;Theta for rotation (radian)&#x0A;&#x0A;Note:&#x0A;Default is walk straight 20cm</tooltip>
                             <bitmap_expanded>1</bitmap_expanded>
                             <Bitmaps>
@@ -13924,8 +13941,99 @@ class MyClass(GeneratedClass):
                                 <id>10</id>
                             </Parameter>
                         </Box>
+                        <Box>
+                            <name>Wait</name>
+                            <robot></robot>
+                            <id>15</id>
+                            <tooltip>The wait that can be stopped immediately and reset at any time.&#x0A;&#x0A;Stopping the box won&apos;t output a signal.&#x0A;*** ref box in: ./4_localize/Time/Wait/ExampleWait.xar ***&#x0A;*** last modification date(svn): Version it! ***</tooltip>
+                            <bitmap_expanded>1</bitmap_expanded>
+                            <Bitmaps>
+                                <bitmap>media/images/box/wait.png</bitmap>
+                            </Bitmaps>
+                            <plugin></plugin>
+                            <x>421</x>
+                            <y>361</y>
+                            <script>
+                                <content>
+                                    <![CDATA[import threading # opkg install python-threading
+class MyClass(GeneratedClass):
+  def __init__(self):
+    GeneratedClass.__init__(self)
+    self.tb = False;
+  
+  def onUnload(self):
+    self.onInput_onStop();
+    
+  def triggerOutput( self, rPeriod = 1 ):
+    self.timerOutput();
+    self.onInput_onStop(); # to clean everything
+  
+  def startTimer( self, rPeriod = 1 ):
+    if( self.tb ):
+      self.tb.cancel();
+    self.tb = threading.Timer( rPeriod, self.triggerOutput, [rPeriod] );
+    self.tb.start();
+
+  def onInput_onStart(self):
+    self.startTimer( self.getParameter("timeout") );
+  
+  def onInput_onStop(self):
+    if( self.tb ):
+      self.tb.cancel();
+      self.tb = False;]]>
+</content>
+                                <language>4</language>
+                            </script>
+                            <Input>
+                                <name>onLoad</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>0</nature>
+                                <inner>1</inner>
+                                <tooltip>Signal sent when diagram is loaded.</tooltip>
+                                <id>1</id>
+                            </Input>
+                            <Input>
+                                <name>onStart</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>2</nature>
+                                <inner>0</inner>
+                                <tooltip>Start the timer with a specified period value (in seconds)</tooltip>
+                                <id>2</id>
+                            </Input>
+                            <Input>
+                                <name>onStop</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>3</nature>
+                                <inner>0</inner>
+                                <tooltip>Stop the timer</tooltip>
+                                <id>3</id>
+                            </Input>
+                            <Output>
+                                <name>timerOutput</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>2</nature>
+                                <inner>0</inner>
+                                <tooltip>send a bang after a certain amount of time.&#x0A;Warning: not outputted if stopped before time lapse.</tooltip>
+                                <id>4</id>
+                            </Output>
+                            <Parameter>
+                                <name>timeout</name>
+                                <inherits_from_parent>0</inherits_from_parent>
+                                <content_type>2</content_type>
+                                <value>5</value>
+                                <default_value>1</default_value>
+                                <min>0</min>
+                                <max>5000</max>
+                                <tooltip>After how many seconds the box will timeout and stimulate its ouput.</tooltip>
+                                <id>5</id>
+                            </Parameter>
+                        </Box>
                         <Link>
-                            <inputowner>5</inputowner>
+                            <inputowner>6</inputowner>
                             <indexofinput>3</indexofinput>
                             <outputowner>0</outputowner>
                             <indexofoutput>2</indexofoutput>
@@ -13937,7 +14045,7 @@ class MyClass(GeneratedClass):
                             <indexofoutput>4</indexofoutput>
                         </Link>
                         <Link>
-                            <inputowner>13</inputowner>
+                            <inputowner>14</inputowner>
                             <indexofinput>2</indexofinput>
                             <outputowner>10</outputowner>
                             <indexofoutput>4</indexofoutput>
@@ -13949,12 +14057,6 @@ class MyClass(GeneratedClass):
                             <indexofoutput>4</indexofoutput>
                         </Link>
                         <Link>
-                            <inputowner>11</inputowner>
-                            <indexofinput>2</indexofinput>
-                            <outputowner>8</outputowner>
-                            <indexofoutput>4</indexofoutput>
-                        </Link>
-                        <Link>
                             <inputowner>9</inputowner>
                             <indexofinput>2</indexofinput>
                             <outputowner>4</outputowner>
@@ -13963,13 +14065,13 @@ class MyClass(GeneratedClass):
                         <Link>
                             <inputowner>4</inputowner>
                             <indexofinput>2</indexofinput>
-                            <outputowner>11</outputowner>
+                            <outputowner>12</outputowner>
                             <indexofoutput>4</indexofoutput>
                         </Link>
                         <Link>
                             <inputowner>3</inputowner>
                             <indexofinput>2</indexofinput>
-                            <outputowner>13</outputowner>
+                            <outputowner>14</outputowner>
                             <indexofoutput>4</indexofoutput>
                         </Link>
                         <Link>
@@ -13991,16 +14093,34 @@ class MyClass(GeneratedClass):
                             <indexofoutput>6</indexofoutput>
                         </Link>
                         <Link>
-                            <inputowner>6</inputowner>
+                            <inputowner>11</inputowner>
                             <indexofinput>2</indexofinput>
                             <outputowner>0</outputowner>
                             <indexofoutput>2</indexofoutput>
                         </Link>
                         <Link>
-                            <inputowner>14</inputowner>
+                            <inputowner>1</inputowner>
                             <indexofinput>2</indexofinput>
                             <outputowner>0</outputowner>
                             <indexofoutput>2</indexofoutput>
+                        </Link>
+                        <Link>
+                            <inputowner>5</inputowner>
+                            <indexofinput>2</indexofinput>
+                            <outputowner>8</outputowner>
+                            <indexofoutput>4</indexofoutput>
+                        </Link>
+                        <Link>
+                            <inputowner>15</inputowner>
+                            <indexofinput>2</indexofinput>
+                            <outputowner>5</outputowner>
+                            <indexofoutput>4</indexofoutput>
+                        </Link>
+                        <Link>
+                            <inputowner>12</inputowner>
+                            <indexofinput>2</indexofinput>
+                            <outputowner>15</outputowner>
+                            <indexofoutput>4</indexofoutput>
                         </Link>
                     </Diagram>
                 </BehaviorKeyframe>

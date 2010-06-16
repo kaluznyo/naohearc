@@ -65,3 +65,7 @@ Mardi 15 Juin :
 
 J'ai fini le module pour attrapé l'objet, j'ai choisi une boulle de plastique rouge, et en la calant un peu, on arrive a l'attrapé, méme si défois cela rate. Il faut mtn détécté qu'elle doit étre la position par rapport a la mark. 
 
+Mercredi 16 Juin :
+
+J'ai repris le mouvement de positionement, lorsque le robot se baisse, pour avoir plus d'angle. Il arrive a prendre la boulle de plastique, le probléme est toujours que l'objet est trop glissant, mais en le remendant vers la jambe, cela peut fonctioner.
+

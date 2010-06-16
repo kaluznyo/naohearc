@@ -547,7 +547,7 @@ class MyClass(GeneratedClass):
                                 <resources_acquisition>0</resources_acquisition>
                                 <size>300</size>
                                 <enable>1</enable>
-                                <start_frame>0</start_frame>
+                                <start_frame>52</start_frame>
                                 <end_frame>-1</end_frame>
                                 <Waveforms />
                                 <scale>10</scale>
@@ -602,7 +602,7 @@ class MyClass(GeneratedClass):
                                             </Key>
                                             <Key>
                                                 <frame>52</frame>
-                                                <value>-41</value>
+                                                <value>-61.8</value>
                                                 <Tangents>
                                                     <Tangent>
                                                         <side>left</side>
@@ -1154,7 +1154,7 @@ class MyClass(GeneratedClass):
                                             </Key>
                                             <Key>
                                                 <frame>52</frame>
-                                                <value>-7.5</value>
+                                                <value>88</value>
                                                 <Tangents>
                                                     <Tangent>
                                                         <side>left</side>
@@ -1223,7 +1223,7 @@ class MyClass(GeneratedClass):
                                             </Key>
                                             <Key>
                                                 <frame>52</frame>
-                                                <value>-58</value>
+                                                <value>-77</value>
                                                 <Tangents>
                                                     <Tangent>
                                                         <side>left</side>
@@ -1499,7 +1499,7 @@ class MyClass(GeneratedClass):
                                             </Key>
                                             <Key>
                                                 <frame>52</frame>
-                                                <value>57</value>
+                                                <value>0</value>
                                                 <Tangents>
                                                     <Tangent>
                                                         <side>left</side>
@@ -1568,7 +1568,7 @@ class MyClass(GeneratedClass):
                                             </Key>
                                             <Key>
                                                 <frame>52</frame>
-                                                <value>-45.965</value>
+                                                <value>-60</value>
                                                 <Tangents>
                                                     <Tangent>
                                                         <side>left</side>
@@ -1637,7 +1637,7 @@ class MyClass(GeneratedClass):
                                             </Key>
                                             <Key>
                                                 <frame>52</frame>
-                                                <value>-11.072</value>
+                                                <value>-19</value>
                                                 <Tangents>
                                                     <Tangent>
                                                         <side>left</side>
@@ -1692,13 +1692,13 @@ class MyClass(GeneratedClass):
                                                         <side>left</side>
                                                         <interpType>bezier auto</interpType>
                                                         <abscissaParam>-6.33333</abscissaParam>
-                                                        <ordinateParam>-7.58244</ordinateParam>
+                                                        <ordinateParam>-6.7064</ordinateParam>
                                                     </Tangent>
                                                     <Tangent>
                                                         <side>right</side>
                                                         <interpType>bezier auto</interpType>
                                                         <abscissaParam>6</abscissaParam>
-                                                        <ordinateParam>7.18336</ordinateParam>
+                                                        <ordinateParam>6.35343</ordinateParam>
                                                     </Tangent>
                                                 </Tangents>
                                                 <smooth>0</smooth>
@@ -1706,7 +1706,7 @@ class MyClass(GeneratedClass):
                                             </Key>
                                             <Key>
                                                 <frame>52</frame>
-                                                <value>23.1179</value>
+                                                <value>18</value>
                                                 <Tangents>
                                                     <Tangent>
                                                         <side>left</side>
@@ -1775,7 +1775,7 @@ class MyClass(GeneratedClass):
                                             </Key>
                                             <Key>
                                                 <frame>52</frame>
-                                                <value>37.7031</value>
+                                                <value>11</value>
                                                 <Tangents>
                                                     <Tangent>
                                                         <side>left</side>
@@ -1844,7 +1844,7 @@ class MyClass(GeneratedClass):
                                             </Key>
                                             <Key>
                                                 <frame>52</frame>
-                                                <value>-1.0571</value>
+                                                <value>34</value>
                                                 <Tangents>
                                                     <Tangent>
                                                         <side>left</side>
@@ -1913,7 +1913,7 @@ class MyClass(GeneratedClass):
                                             </Key>
                                             <Key>
                                                 <frame>52</frame>
-                                                <value>-25.0467</value>
+                                                <value>-16</value>
                                                 <Tangents>
                                                     <Tangent>
                                                         <side>left</side>
@@ -1968,13 +1968,13 @@ class MyClass(GeneratedClass):
                                                         <side>left</side>
                                                         <interpType>bezier auto</interpType>
                                                         <abscissaParam>-6.33333</abscissaParam>
-                                                        <ordinateParam>6.55941</ordinateParam>
+                                                        <ordinateParam>6.34143</ordinateParam>
                                                     </Tangent>
                                                     <Tangent>
                                                         <side>right</side>
                                                         <interpType>bezier auto</interpType>
                                                         <abscissaParam>6</abscissaParam>
-                                                        <ordinateParam>-6.21418</ordinateParam>
+                                                        <ordinateParam>-6.00767</ordinateParam>
                                                     </Tangent>
                                                 </Tangents>
                                                 <smooth>0</smooth>
@@ -1982,7 +1982,7 @@ class MyClass(GeneratedClass):
                                             </Key>
                                             <Key>
                                                 <frame>52</frame>
-                                                <value>-42.2735</value>
+                                                <value>-41</value>
                                                 <Tangents>
                                                     <Tangent>
                                                         <side>left</side>
@@ -2037,13 +2037,13 @@ class MyClass(GeneratedClass):
                                                         <side>left</side>
                                                         <interpType>bezier auto</interpType>
                                                         <abscissaParam>-6.33333</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
+                                                        <ordinateParam>8.62359</ordinateParam>
                                                     </Tangent>
                                                     <Tangent>
                                                         <side>right</side>
                                                         <interpType>bezier auto</interpType>
                                                         <abscissaParam>6</abscissaParam>
-                                                        <ordinateParam>0</ordinateParam>
+                                                        <ordinateParam>-8.16971</ordinateParam>
                                                     </Tangent>
                                                 </Tangents>
                                                 <smooth>0</smooth>
@@ -2051,7 +2051,7 @@ class MyClass(GeneratedClass):
                                             </Key>
                                             <Key>
                                                 <frame>52</frame>
-                                                <value>-55.1984</value>
+                                                <value>-88</value>
                                                 <Tangents>
                                                     <Tangent>
                                                         <side>left</side>
@@ -2189,7 +2189,7 @@ class MyClass(GeneratedClass):
                                             </Key>
                                             <Key>
                                                 <frame>52</frame>
-                                                <value>-67.9785</value>
+                                                <value>-36</value>
                                                 <Tangents>
                                                     <Tangent>
                                                         <side>left</side>
@@ -2258,7 +2258,7 @@ class MyClass(GeneratedClass):
                                             </Key>
                                             <Key>
                                                 <frame>52</frame>
-                                                <value>-2.81013</value>
+                                                <value>-2</value>
                                                 <Tangents>
                                                     <Tangent>
                                                         <side>left</side>
@@ -2373,105 +2373,9 @@ class MyClass(GeneratedClass):
                             </Parameter>
                         </Box>
                         <Box>
-                            <name>Enter name here</name>
-                            <robot></robot>
-                            <id>5</id>
-                            <tooltip>Enter tooltip here</tooltip>
-                            <bitmap_expanded>1</bitmap_expanded>
-                            <Bitmaps>
-                                <bitmap>media/images/box/box-diagram.png</bitmap>
-                            </Bitmaps>
-                            <plugin></plugin>
-                            <x>326</x>
-                            <y>393</y>
-                            <script>
-                                <content>
-                                    <![CDATA[import math
-
-class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self)
-
-    def onLoad(self):
-        self.test  = ALProxy('ObjectDetect')
-        self.ok = True
-        pass
-
-    def onUnload(self):
-         self.ok = False
-    
-    def onInput_onStart(self):
-       # while self.ok:
-            self.test.registerToVIM(1,11,15)
-            i = self.test.takePhoto()
-            self.log( str(i))
-            self.test.unRegisterFromVIM()
-            self.log("X: "+ str(i[0]*180/math.pi))
-            self.log("Y: "+str(i[1]*180/math.pi))
-
-            if i[0] != -1:
-                ALMotion.openHand("RHand")
-                time.sleep(2)
-                ALMotion.setAngles("RShoulderRoll", -0.610865238+i[1], 0.3)
-                time.sleep(2)
-                ALMotion.setAngles("RShoulderPitch",0.699865238, 0.3)
-                time.sleep(2)
-                ALMotion.closeHand("RHand")
-                time.sleep(2)
-                #Check if hand is totaly closed, if it's closed, try again
-
-
-
-            
-
-
-    def onInput_onStop(self):
-        self.onUnload() #~ it is recommanded to call onUnload of this box in a onStop method, as the code written in onUnload is used to stop the box as well
-        pass]]>
-</content>
-                                <language>4</language>
-                            </script>
-                            <Input>
-                                <name>onLoad</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>0</nature>
-                                <inner>1</inner>
-                                <tooltip>Signal sent when diagram is loaded.</tooltip>
-                                <id>1</id>
-                            </Input>
-                            <Input>
-                                <name>onStart</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>2</nature>
-                                <inner>0</inner>
-                                <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
-                                <id>2</id>
-                            </Input>
-                            <Input>
-                                <name>onStop</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>3</nature>
-                                <inner>0</inner>
-                                <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
-                                <id>3</id>
-                            </Input>
-                            <Output>
-                                <name>onStopped</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>1</nature>
-                                <inner>0</inner>
-                                <tooltip>Signal sent when box behavior is finished.</tooltip>
-                                <id>4</id>
-                            </Output>
-                        </Box>
-                        <Box>
                             <name>SelectCam</name>
                             <robot></robot>
-                            <id>6</id>
+                            <id>5</id>
                             <tooltip>Change the currently used camera.</tooltip>
                             <bitmap_expanded>1</bitmap_expanded>
                             <Bitmaps>
@@ -2553,8 +2457,8 @@ class MyClass(GeneratedClass):
                                 <bitmap>media/images/box/movement/walk_forward.png</bitmap>
                             </Bitmaps>
                             <plugin></plugin>
-                            <x>285</x>
-                            <y>275</y>
+                            <x>258</x>
+                            <y>280</y>
                             <script>
                                 <content>
                                     <![CDATA[class MyClass(GeneratedClass):
@@ -2686,7 +2590,7 @@ class MyClass(GeneratedClass):
                         <Box>
                             <name>Wait</name>
                             <robot></robot>
-                            <id>8</id>
+                            <id>6</id>
                             <tooltip>The wait that can be stopped immediately and reset at any time.&#x0A;&#x0A;Stopping the box won&apos;t output a signal.&#x0A;*** ref box in: ./4_localize/Time/Wait/ExampleWait.xar ***&#x0A;*** last modification date(svn): Version it! ***</tooltip>
                             <bitmap_expanded>1</bitmap_expanded>
                             <Bitmaps>
@@ -4444,9 +4348,754 @@ class MyClass(GeneratedClass):
                             </Timeline>
                         </Box>
                         <Box>
-                            <name>StandAfterPick</name>
+                            <name>Enter name here</name>
+                            <robot></robot>
+                            <id>8</id>
+                            <tooltip>Enter tooltip here</tooltip>
+                            <bitmap_expanded>1</bitmap_expanded>
+                            <Bitmaps>
+                                <bitmap>media/images/box/box-diagram.png</bitmap>
+                            </Bitmaps>
+                            <plugin></plugin>
+                            <x>296</x>
+                            <y>389</y>
+                            <script>
+                                <content>
+                                    <![CDATA[import math
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        self.test  = ALProxy('ObjectDetect')
+        self.ok = True
+        pass
+
+    def onUnload(self):
+         self.ok = False
+    
+    def onInput_onStart(self):
+       # while self.ok:
+            self.test.registerToVIM(1,11,15)
+            i = self.test.takePhoto()
+            self.log( str(i))
+            self.test.unRegisterFromVIM()
+            self.log("X: "+ str(i[0]*180/math.pi))
+            self.log("Y: "+str(i[1]*180/math.pi))
+
+            if i[0] != -1:
+                ALMotion.openHand("RHand")
+                time.sleep(2)
+                ALMotion.setAngles("RShoulderRoll", -0.79412481+i[1], 0.3)
+                time.sleep(2)
+                ALMotion.setAngles("RShoulderPitch",0.35, 0.2)
+                time.sleep(2)
+                ALMotion.closeHand("RHand")
+                time.sleep(2)
+                #Check if hand is totaly closed, if it's closed, try again
+
+
+
+            
+
+
+    def onInput_onStop(self):
+        self.onUnload() #~ it is recommanded to call onUnload of this box in a onStop method, as the code written in onUnload is used to stop the box as well
+        pass]]>
+</content>
+                                <language>4</language>
+                            </script>
+                            <Input>
+                                <name>onLoad</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>0</nature>
+                                <inner>1</inner>
+                                <tooltip>Signal sent when diagram is loaded.</tooltip>
+                                <id>1</id>
+                            </Input>
+                            <Input>
+                                <name>onStart</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>2</nature>
+                                <inner>0</inner>
+                                <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
+                                <id>2</id>
+                            </Input>
+                            <Input>
+                                <name>onStop</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>3</nature>
+                                <inner>0</inner>
+                                <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
+                                <id>3</id>
+                            </Input>
+                            <Output>
+                                <name>onStopped</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>1</nature>
+                                <inner>0</inner>
+                                <tooltip>Signal sent when box behavior is finished.</tooltip>
+                                <id>4</id>
+                            </Output>
+                        </Box>
+                        <Box>
+                            <name>Wait</name>
                             <robot></robot>
                             <id>12</id>
+                            <tooltip>The wait that can be stopped immediately and reset at any time.&#x0A;&#x0A;Stopping the box won&apos;t output a signal.&#x0A;*** ref box in: ./4_localize/Time/Wait/ExampleWait.xar ***&#x0A;*** last modification date(svn): Version it! ***</tooltip>
+                            <bitmap_expanded>1</bitmap_expanded>
+                            <Bitmaps>
+                                <bitmap>media/images/box/wait.png</bitmap>
+                            </Bitmaps>
+                            <plugin></plugin>
+                            <x>421</x>
+                            <y>361</y>
+                            <script>
+                                <content>
+                                    <![CDATA[import threading # opkg install python-threading
+class MyClass(GeneratedClass):
+  def __init__(self):
+    GeneratedClass.__init__(self)
+    self.tb = False;
+  
+  def onUnload(self):
+    self.onInput_onStop();
+    
+  def triggerOutput( self, rPeriod = 1 ):
+    self.timerOutput();
+    self.onInput_onStop(); # to clean everything
+  
+  def startTimer( self, rPeriod = 1 ):
+    if( self.tb ):
+      self.tb.cancel();
+    self.tb = threading.Timer( rPeriod, self.triggerOutput, [rPeriod] );
+    self.tb.start();
+
+  def onInput_onStart(self):
+    self.startTimer( self.getParameter("timeout") );
+  
+  def onInput_onStop(self):
+    if( self.tb ):
+      self.tb.cancel();
+      self.tb = False;]]>
+</content>
+                                <language>4</language>
+                            </script>
+                            <Input>
+                                <name>onLoad</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>0</nature>
+                                <inner>1</inner>
+                                <tooltip>Signal sent when diagram is loaded.</tooltip>
+                                <id>1</id>
+                            </Input>
+                            <Input>
+                                <name>onStart</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>2</nature>
+                                <inner>0</inner>
+                                <tooltip>Start the timer with a specified period value (in seconds)</tooltip>
+                                <id>2</id>
+                            </Input>
+                            <Input>
+                                <name>onStop</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>3</nature>
+                                <inner>0</inner>
+                                <tooltip>Stop the timer</tooltip>
+                                <id>3</id>
+                            </Input>
+                            <Output>
+                                <name>timerOutput</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>2</nature>
+                                <inner>0</inner>
+                                <tooltip>send a bang after a certain amount of time.&#x0A;Warning: not outputted if stopped before time lapse.</tooltip>
+                                <id>4</id>
+                            </Output>
+                            <Parameter>
+                                <name>timeout</name>
+                                <inherits_from_parent>0</inherits_from_parent>
+                                <content_type>2</content_type>
+                                <value>5</value>
+                                <default_value>1</default_value>
+                                <min>0</min>
+                                <max>5000</max>
+                                <tooltip>After how many seconds the box will timeout and stimulate its ouput.</tooltip>
+                                <id>5</id>
+                            </Parameter>
+                        </Box>
+                        <Box>
+                            <name>OldBox</name>
+                            <robot></robot>
+                            <id>13</id>
+                            <tooltip>Enter tooltip here </tooltip>
+                            <bitmap_expanded>1</bitmap_expanded>
+                            <Bitmaps>
+                                <bitmap>media/images/box/box-diagram.png</bitmap>
+                            </Bitmaps>
+                            <plugin></plugin>
+                            <x>454</x>
+                            <y>1</y>
+                            <script>
+                                <content>
+                                    <![CDATA[]]>
+</content>
+                                <language>4</language>
+                            </script>
+                            <Input>
+                                <name>onLoad</name>
+                                <type>1</type>
+                                <type_size>1</type_size>
+                                <nature>0</nature>
+                                <inner>1</inner>
+                                <tooltip>Signal sent when diagram is loaded.</tooltip>
+                                <id>1</id>
+                            </Input>
+                            <Timeline>
+                                <fps>10</fps>
+                                <resources_acquisition>0</resources_acquisition>
+                                <size>300</size>
+                                <enable>0</enable>
+                                <start_frame>0</start_frame>
+                                <end_frame>-1</end_frame>
+                                <Waveforms />
+                                <scale>10</scale>
+                                <watches />
+                                <BehaviorLayer>
+                                    <name>behavior_layer1</name>
+                                    <mute>0</mute>
+                                    <BehaviorKeyframe>
+                                        <name>keyframe1</name>
+                                        <index>1</index>
+                                        <bitmap></bitmap>
+                                        <Diagram>
+                                            <scale>-1</scale>
+                                            <Box>
+                                                <name>NaoMark</name>
+                                                <robot></robot>
+                                                <id>1</id>
+                                                <tooltip>Start naoMark extractor and subscribe on mark value</tooltip>
+                                                <bitmap_expanded>1</bitmap_expanded>
+                                                <Bitmaps>
+                                                    <bitmap>media/images/box/interaction/uramark.png</bitmap>
+                                                </Bitmaps>
+                                                <plugin></plugin>
+                                                <x>358</x>
+                                                <y>1</y>
+                                                <script>
+                                                    <content>
+                                                        <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onLoad(self):
+        #~ puts code for box initialization here
+        pass
+
+    def onUnload(self):
+        #~ puts code for box cleanup here
+        pass
+
+    def onInput_onStart(self):
+        self.gotoAndStop(1)
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload()
+        self.onStopped()]]>
+</content>
+                                                    <language>4</language>
+                                                </script>
+                                                <Input>
+                                                    <name>onLoad</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>0</nature>
+                                                    <inner>1</inner>
+                                                    <tooltip>Signal sent when diagram is loaded.</tooltip>
+                                                    <id>1</id>
+                                                </Input>
+                                                <Input>
+                                                    <name>onStart</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>2</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
+                                                    <id>2</id>
+                                                </Input>
+                                                <Input>
+                                                    <name>onStop</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>3</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
+                                                    <id>3</id>
+                                                </Input>
+                                                <Input>
+                                                    <name>LandmarkDetected</name>
+                                                    <type>0</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>4</nature>
+                                                    <stm_value_name>LandmarkDetected</stm_value_name>
+                                                    <inner>1</inner>
+                                                    <tooltip>Connected to ALMemory. Will be stimulated every time the value subscribed to changes, respecting the refresh period.</tooltip>
+                                                    <id>4</id>
+                                                </Input>
+                                                <Output>
+                                                    <name>onStopped</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>1</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip>Signal sent when box behavior is finished.</tooltip>
+                                                    <id>5</id>
+                                                </Output>
+                                                <Output>
+                                                    <name>onMarkDetected</name>
+                                                    <type>2</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>2</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip>A mark has been detected !&#x0A;Send the mark&apos;s number !</tooltip>
+                                                    <id>6</id>
+                                                </Output>
+                                                <Output>
+                                                    <name>onNoMark</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>2</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip>No mark ! :-(</tooltip>
+                                                    <id>7</id>
+                                                </Output>
+                                                <Timeline>
+                                                    <fps>10</fps>
+                                                    <resources_acquisition>0</resources_acquisition>
+                                                    <size>300</size>
+                                                    <enable>0</enable>
+                                                    <start_frame>0</start_frame>
+                                                    <end_frame>-1</end_frame>
+                                                    <Waveforms />
+                                                    <scale>10</scale>
+                                                    <watches />
+                                                    <BehaviorLayer>
+                                                        <name>behavior_layer1</name>
+                                                        <mute>0</mute>
+                                                        <BehaviorKeyframe>
+                                                            <name>keyframe1</name>
+                                                            <index>1</index>
+                                                            <bitmap></bitmap>
+                                                            <Diagram>
+                                                                <scale>-1</scale>
+                                                                <Box>
+                                                                    <name>getMarksList</name>
+                                                                    <robot></robot>
+                                                                    <id>1</id>
+                                                                    <tooltip>Returns the list of marks detected (empty if no mark)</tooltip>
+                                                                    <bitmap_expanded>1</bitmap_expanded>
+                                                                    <Bitmaps>
+                                                                        <bitmap>media/images/box/box-script.png</bitmap>
+                                                                    </Bitmaps>
+                                                                    <plugin></plugin>
+                                                                    <x>139</x>
+                                                                    <y>75</y>
+                                                                    <script>
+                                                                        <content>
+                                                                            <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+    def onUnload(self):
+        #puts code for box cleanup here
+        pass
+
+    def onInput_onStart(self, p):
+        markIDs = []
+        # Generic Extractor output format:
+        # p = [ [timeStampMaj, timeStampMin], [ tag0, tag1, ... tagN] ] with tag = [ shapeInfo, moreInfo ]
+        if(len(p) > 0):
+            markInfoArray = p[1]
+            self.log(str(markInfoArray))
+            
+            
+            for markInfo in markInfoArray:
+                moreInfo = markInfo[1]
+                # moreInfo = [ landmarkID ]
+                markIDs.append(moreInfo[0])
+                
+        self.onStopped(markIDs)
+
+    def onInput_onStop(self):
+        pass]]>
+</content>
+                                                                        <language>4</language>
+                                                                    </script>
+                                                                    <Input>
+                                                                        <name>onLoad</name>
+                                                                        <type>1</type>
+                                                                        <type_size>1</type_size>
+                                                                        <nature>0</nature>
+                                                                        <inner>1</inner>
+                                                                        <tooltip>Signal sent when diagram is loaded.</tooltip>
+                                                                        <id>1</id>
+                                                                    </Input>
+                                                                    <Input>
+                                                                        <name>onStart</name>
+                                                                        <type>0</type>
+                                                                        <type_size>1</type_size>
+                                                                        <nature>2</nature>
+                                                                        <inner>0</inner>
+                                                                        <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
+                                                                        <id>2</id>
+                                                                    </Input>
+                                                                    <Input>
+                                                                        <name>onStop</name>
+                                                                        <type>1</type>
+                                                                        <type_size>1</type_size>
+                                                                        <nature>3</nature>
+                                                                        <inner>0</inner>
+                                                                        <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
+                                                                        <id>3</id>
+                                                                    </Input>
+                                                                    <Output>
+                                                                        <name>onStopped</name>
+                                                                        <type>0</type>
+                                                                        <type_size>1</type_size>
+                                                                        <nature>1</nature>
+                                                                        <inner>0</inner>
+                                                                        <tooltip>Signal sent when box behavior is finished.</tooltip>
+                                                                        <id>4</id>
+                                                                    </Output>
+                                                                </Box>
+                                                                <Box>
+                                                                    <name>processList</name>
+                                                                    <robot></robot>
+                                                                    <id>2</id>
+                                                                    <tooltip>This box will process the list. It will return a mark ID if at least one has been detected, or the noMark output if no mark has been detected. &#x0A;Note that the ID output will only be stimulated once, as long as the ID does not change. It allows a very easy integration from the upper level.</tooltip>
+                                                                    <bitmap_expanded>1</bitmap_expanded>
+                                                                    <Bitmaps>
+                                                                        <bitmap>media/images/box/interaction/uramark.png</bitmap>
+                                                                    </Bitmaps>
+                                                                    <plugin></plugin>
+                                                                    <x>332</x>
+                                                                    <y>94</y>
+                                                                    <script>
+                                                                        <content>
+                                                                            <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+        
+    def onLoad(self):
+        self.nNumLastDetected = -1;
+        
+    def onUnload(self):
+        #puts code for box cleanup here
+        pass
+
+    def onInput_onStart(self, p):
+        if(len(p) == 0):
+            self.nNumLastDetected = -1
+            self.onNoMark();
+        else:
+            if(self.nNumLastDetected != p[0]):
+                #only stimulate output if a mark wasn't detected before !
+                self.nNumLastDetected = p[0]
+                self.onMarkDetected( self.nNumLastDetected )
+            
+    def onInput_onStop(self):
+        pass]]>
+</content>
+                                                                        <language>4</language>
+                                                                    </script>
+                                                                    <Input>
+                                                                        <name>onLoad</name>
+                                                                        <type>1</type>
+                                                                        <type_size>1</type_size>
+                                                                        <nature>0</nature>
+                                                                        <inner>1</inner>
+                                                                        <tooltip>Signal sent when diagram is loaded.</tooltip>
+                                                                        <id>1</id>
+                                                                    </Input>
+                                                                    <Input>
+                                                                        <name>onStart</name>
+                                                                        <type>0</type>
+                                                                        <type_size>1</type_size>
+                                                                        <nature>2</nature>
+                                                                        <inner>0</inner>
+                                                                        <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
+                                                                        <id>2</id>
+                                                                    </Input>
+                                                                    <Input>
+                                                                        <name>onStop</name>
+                                                                        <type>1</type>
+                                                                        <type_size>1</type_size>
+                                                                        <nature>3</nature>
+                                                                        <inner>0</inner>
+                                                                        <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
+                                                                        <id>3</id>
+                                                                    </Input>
+                                                                    <Output>
+                                                                        <name>onMarkDetected</name>
+                                                                        <type>2</type>
+                                                                        <type_size>1</type_size>
+                                                                        <nature>2</nature>
+                                                                        <inner>0</inner>
+                                                                        <tooltip>a mark has been detected !&#x0A;Send the mark&apos;s number !</tooltip>
+                                                                        <id>4</id>
+                                                                    </Output>
+                                                                    <Output>
+                                                                        <name>onNoMark</name>
+                                                                        <type>1</type>
+                                                                        <type_size>1</type_size>
+                                                                        <nature>2</nature>
+                                                                        <inner>0</inner>
+                                                                        <tooltip>No mark detected :-(</tooltip>
+                                                                        <id>5</id>
+                                                                    </Output>
+                                                                </Box>
+                                                                <Link>
+                                                                    <inputowner>0</inputowner>
+                                                                    <indexofinput>7</indexofinput>
+                                                                    <outputowner>2</outputowner>
+                                                                    <indexofoutput>5</indexofoutput>
+                                                                </Link>
+                                                                <Link>
+                                                                    <inputowner>0</inputowner>
+                                                                    <indexofinput>6</indexofinput>
+                                                                    <outputowner>2</outputowner>
+                                                                    <indexofoutput>4</indexofoutput>
+                                                                </Link>
+                                                                <Link>
+                                                                    <inputowner>1</inputowner>
+                                                                    <indexofinput>2</indexofinput>
+                                                                    <outputowner>0</outputowner>
+                                                                    <indexofoutput>4</indexofoutput>
+                                                                </Link>
+                                                                <Link>
+                                                                    <inputowner>2</inputowner>
+                                                                    <indexofinput>2</indexofinput>
+                                                                    <outputowner>1</outputowner>
+                                                                    <indexofoutput>4</indexofoutput>
+                                                                </Link>
+                                                            </Diagram>
+                                                        </BehaviorKeyframe>
+                                                    </BehaviorLayer>
+                                                    <ActuatorList />
+                                                </Timeline>
+                                            </Box>
+                                            <Box>
+                                                <name>DetecteMark</name>
+                                                <robot></robot>
+                                                <id>2</id>
+                                                <tooltip>Enter tooltip here</tooltip>
+                                                <bitmap_expanded>1</bitmap_expanded>
+                                                <Bitmaps>
+                                                    <bitmap>media/images/box/box-diagram.png</bitmap>
+                                                </Bitmaps>
+                                                <plugin></plugin>
+                                                <x>408</x>
+                                                <y>33</y>
+                                                <script>
+                                                    <content>
+                                                        <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+        self.loop = True
+        self.miss = 0
+    def onLoad(self):
+        #~ puts code for box initialization here
+        pass
+
+    def onUnload(self):
+        #~ puts code for box cleanup here
+        self.loop = False
+
+    def onInput_onStart(self):
+        time.sleep(1)
+        while self.loop:
+           self.log(self.miss)
+           self.log(ALMemory.getData("LandmarkDetected", 0))
+           time.sleep(0.1)
+           if len(ALMemory.getData("LandmarkDetected", 0)) == 0:
+               self.miss = self.miss + 1
+           else:
+               self.miss = 0
+           if self.miss == 10:
+               break
+  
+        self.log("STOP IT")
+        self.onStopped()
+
+    def onInput_onStop(self):
+        self.onUnload() #~ it is recommanded to call onUnload of this box in a onStop method, as the code written in onUnload is used to stop the box as well
+        pass
+
+    def onInput_markDetect(self, p):
+        pass]]>
+</content>
+                                                    <language>4</language>
+                                                </script>
+                                                <Input>
+                                                    <name>onLoad</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>0</nature>
+                                                    <inner>1</inner>
+                                                    <tooltip>Signal sent when diagram is loaded.</tooltip>
+                                                    <id>1</id>
+                                                </Input>
+                                                <Input>
+                                                    <name>onStart</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>2</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
+                                                    <id>2</id>
+                                                </Input>
+                                                <Input>
+                                                    <name>onStop</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>3</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
+                                                    <id>3</id>
+                                                </Input>
+                                                <Output>
+                                                    <name>onStopped</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>1</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip>Signal sent when box behavior is finished.</tooltip>
+                                                    <id>4</id>
+                                                </Output>
+                                            </Box>
+                                            <Box>
+                                                <name>Enter name here</name>
+                                                <robot></robot>
+                                                <id>3</id>
+                                                <tooltip>Enter tooltip here</tooltip>
+                                                <bitmap_expanded>1</bitmap_expanded>
+                                                <Bitmaps>
+                                                    <bitmap>media/images/box/box-diagram.png</bitmap>
+                                                </Bitmaps>
+                                                <plugin></plugin>
+                                                <x>450</x>
+                                                <y>82</y>
+                                                <script>
+                                                    <content>
+                                                        <![CDATA[class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+
+    def onLoad(self):
+        #~ puts code for box initialization here
+        pass
+
+    def onUnload(self):
+        #~ puts code for box cleanup here
+        pass
+
+    def onInput_onStart(self):
+       self.log("TITI")
+       self.log(str(ALMemory.getData("LandmarkDetected", 0)))
+       while len(ALMemory.getData("LandmarkDetected", 0))==0 or not (-0.2>ALMemory.getData("LandmarkDetected", 0)[1][0][0][1]>0.2):
+          if len(ALMemory.getData("LandmarkDetected", 0)) != 0:
+              self.log(str(ALMemory.getData("LandmarkDetected", 0)[1][0][0][1]))
+          self.log("Youou")
+          ALMotion.changeAngles("HeadYaw",-0.25,0.1)
+       self.log("OK")
+
+        
+
+    def onInput_onStop(self):
+        self.onUnload() #~ it is usually a good idea to call onUnload of this box in a onStop method, as the code written in onUnload is used to finish the working of the box as well
+        pass]]>
+</content>
+                                                    <language>4</language>
+                                                </script>
+                                                <Input>
+                                                    <name>onLoad</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>0</nature>
+                                                    <inner>1</inner>
+                                                    <tooltip>Signal sent when diagram is loaded.</tooltip>
+                                                    <id>1</id>
+                                                </Input>
+                                                <Input>
+                                                    <name>onStart</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>2</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
+                                                    <id>2</id>
+                                                </Input>
+                                                <Input>
+                                                    <name>onStop</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>3</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
+                                                    <id>3</id>
+                                                </Input>
+                                                <Input>
+                                                    <name>onDetect</name>
+                                                    <type>0</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>4</nature>
+                                                    <stm_value_name>extractors/allandmarkdetection/landmarkdetected</stm_value_name>
+                                                    <inner>1</inner>
+                                                    <tooltip></tooltip>
+                                                    <id>4</id>
+                                                </Input>
+                                                <Input>
+                                                    <name>extractors/allandmarkdetection/landmarkdetected</name>
+                                                    <type>0</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>4</nature>
+                                                    <stm_value_name>extractors/allandmarkdetection/landmarkdetected</stm_value_name>
+                                                    <inner>1</inner>
+                                                    <tooltip>Connected to ALMemory. Will be stimulated every time the value subscribed to changes, respecting the refresh period.</tooltip>
+                                                    <id>5</id>
+                                                </Input>
+                                                <Output>
+                                                    <name>onStopped</name>
+                                                    <type>1</type>
+                                                    <type_size>1</type_size>
+                                                    <nature>1</nature>
+                                                    <inner>0</inner>
+                                                    <tooltip>Signal sent when box behavior is finished.</tooltip>
+                                                    <id>6</id>
+                                                </Output>
+                                            </Box>
+                                        </Diagram>
+                                    </BehaviorKeyframe>
+                                </BehaviorLayer>
+                                <ActuatorList />
+                            </Timeline>
+                        </Box>
+                        <Box>
+                            <name>StandAfterPick</name>
+                            <robot></robot>
+                            <id>14</id>
                             <tooltip>Enter tooltip here</tooltip>
                             <bitmap_expanded>1</bitmap_expanded>
                             <Bitmaps>
@@ -13237,567 +13886,9 @@ class MyClass(GeneratedClass):
                             </Timeline>
                         </Box>
                         <Box>
-                            <name>OldBox</name>
-                            <robot></robot>
-                            <id>13</id>
-                            <tooltip>Enter tooltip here </tooltip>
-                            <bitmap_expanded>1</bitmap_expanded>
-                            <Bitmaps>
-                                <bitmap>media/images/box/box-diagram.png</bitmap>
-                            </Bitmaps>
-                            <plugin></plugin>
-                            <x>454</x>
-                            <y>1</y>
-                            <script>
-                                <content>
-                                    <![CDATA[]]>
-</content>
-                                <language>4</language>
-                            </script>
-                            <Input>
-                                <name>onLoad</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>0</nature>
-                                <inner>1</inner>
-                                <tooltip>Signal sent when diagram is loaded.</tooltip>
-                                <id>1</id>
-                            </Input>
-                            <Timeline>
-                                <fps>10</fps>
-                                <resources_acquisition>0</resources_acquisition>
-                                <size>300</size>
-                                <enable>0</enable>
-                                <start_frame>0</start_frame>
-                                <end_frame>-1</end_frame>
-                                <Waveforms />
-                                <scale>10</scale>
-                                <watches />
-                                <BehaviorLayer>
-                                    <name>behavior_layer1</name>
-                                    <mute>0</mute>
-                                    <BehaviorKeyframe>
-                                        <name>keyframe1</name>
-                                        <index>1</index>
-                                        <bitmap></bitmap>
-                                        <Diagram>
-                                            <scale>-1</scale>
-                                            <Box>
-                                                <name>NaoMark</name>
-                                                <robot></robot>
-                                                <id>1</id>
-                                                <tooltip>Start naoMark extractor and subscribe on mark value</tooltip>
-                                                <bitmap_expanded>1</bitmap_expanded>
-                                                <Bitmaps>
-                                                    <bitmap>media/images/box/interaction/uramark.png</bitmap>
-                                                </Bitmaps>
-                                                <plugin></plugin>
-                                                <x>358</x>
-                                                <y>1</y>
-                                                <script>
-                                                    <content>
-                                                        <![CDATA[class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self)
-
-    def onLoad(self):
-        #~ puts code for box initialization here
-        pass
-
-    def onUnload(self):
-        #~ puts code for box cleanup here
-        pass
-
-    def onInput_onStart(self):
-        self.gotoAndStop(1)
-        pass
-
-    def onInput_onStop(self):
-        self.onUnload()
-        self.onStopped()]]>
-</content>
-                                                    <language>4</language>
-                                                </script>
-                                                <Input>
-                                                    <name>onLoad</name>
-                                                    <type>1</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>0</nature>
-                                                    <inner>1</inner>
-                                                    <tooltip>Signal sent when diagram is loaded.</tooltip>
-                                                    <id>1</id>
-                                                </Input>
-                                                <Input>
-                                                    <name>onStart</name>
-                                                    <type>1</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>2</nature>
-                                                    <inner>0</inner>
-                                                    <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
-                                                    <id>2</id>
-                                                </Input>
-                                                <Input>
-                                                    <name>onStop</name>
-                                                    <type>1</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>3</nature>
-                                                    <inner>0</inner>
-                                                    <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
-                                                    <id>3</id>
-                                                </Input>
-                                                <Input>
-                                                    <name>LandmarkDetected</name>
-                                                    <type>0</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>4</nature>
-                                                    <stm_value_name>LandmarkDetected</stm_value_name>
-                                                    <inner>1</inner>
-                                                    <tooltip>Connected to ALMemory. Will be stimulated every time the value subscribed to changes, respecting the refresh period.</tooltip>
-                                                    <id>4</id>
-                                                </Input>
-                                                <Output>
-                                                    <name>onStopped</name>
-                                                    <type>1</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>1</nature>
-                                                    <inner>0</inner>
-                                                    <tooltip>Signal sent when box behavior is finished.</tooltip>
-                                                    <id>5</id>
-                                                </Output>
-                                                <Output>
-                                                    <name>onMarkDetected</name>
-                                                    <type>2</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>2</nature>
-                                                    <inner>0</inner>
-                                                    <tooltip>A mark has been detected !&#x0A;Send the mark&apos;s number !</tooltip>
-                                                    <id>6</id>
-                                                </Output>
-                                                <Output>
-                                                    <name>onNoMark</name>
-                                                    <type>1</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>2</nature>
-                                                    <inner>0</inner>
-                                                    <tooltip>No mark ! :-(</tooltip>
-                                                    <id>7</id>
-                                                </Output>
-                                                <Timeline>
-                                                    <fps>10</fps>
-                                                    <resources_acquisition>0</resources_acquisition>
-                                                    <size>300</size>
-                                                    <enable>0</enable>
-                                                    <start_frame>0</start_frame>
-                                                    <end_frame>-1</end_frame>
-                                                    <Waveforms />
-                                                    <scale>10</scale>
-                                                    <watches />
-                                                    <BehaviorLayer>
-                                                        <name>behavior_layer1</name>
-                                                        <mute>0</mute>
-                                                        <BehaviorKeyframe>
-                                                            <name>keyframe1</name>
-                                                            <index>1</index>
-                                                            <bitmap></bitmap>
-                                                            <Diagram>
-                                                                <scale>-1</scale>
-                                                                <Box>
-                                                                    <name>getMarksList</name>
-                                                                    <robot></robot>
-                                                                    <id>1</id>
-                                                                    <tooltip>Returns the list of marks detected (empty if no mark)</tooltip>
-                                                                    <bitmap_expanded>1</bitmap_expanded>
-                                                                    <Bitmaps>
-                                                                        <bitmap>media/images/box/box-script.png</bitmap>
-                                                                    </Bitmaps>
-                                                                    <plugin></plugin>
-                                                                    <x>139</x>
-                                                                    <y>75</y>
-                                                                    <script>
-                                                                        <content>
-                                                                            <![CDATA[class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self)
-
-    def onUnload(self):
-        #puts code for box cleanup here
-        pass
-
-    def onInput_onStart(self, p):
-        markIDs = []
-        # Generic Extractor output format:
-        # p = [ [timeStampMaj, timeStampMin], [ tag0, tag1, ... tagN] ] with tag = [ shapeInfo, moreInfo ]
-        if(len(p) > 0):
-            markInfoArray = p[1]
-            self.log(str(markInfoArray))
-            
-            
-            for markInfo in markInfoArray:
-                moreInfo = markInfo[1]
-                # moreInfo = [ landmarkID ]
-                markIDs.append(moreInfo[0])
-                
-        self.onStopped(markIDs)
-
-    def onInput_onStop(self):
-        pass]]>
-</content>
-                                                                        <language>4</language>
-                                                                    </script>
-                                                                    <Input>
-                                                                        <name>onLoad</name>
-                                                                        <type>1</type>
-                                                                        <type_size>1</type_size>
-                                                                        <nature>0</nature>
-                                                                        <inner>1</inner>
-                                                                        <tooltip>Signal sent when diagram is loaded.</tooltip>
-                                                                        <id>1</id>
-                                                                    </Input>
-                                                                    <Input>
-                                                                        <name>onStart</name>
-                                                                        <type>0</type>
-                                                                        <type_size>1</type_size>
-                                                                        <nature>2</nature>
-                                                                        <inner>0</inner>
-                                                                        <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
-                                                                        <id>2</id>
-                                                                    </Input>
-                                                                    <Input>
-                                                                        <name>onStop</name>
-                                                                        <type>1</type>
-                                                                        <type_size>1</type_size>
-                                                                        <nature>3</nature>
-                                                                        <inner>0</inner>
-                                                                        <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
-                                                                        <id>3</id>
-                                                                    </Input>
-                                                                    <Output>
-                                                                        <name>onStopped</name>
-                                                                        <type>0</type>
-                                                                        <type_size>1</type_size>
-                                                                        <nature>1</nature>
-                                                                        <inner>0</inner>
-                                                                        <tooltip>Signal sent when box behavior is finished.</tooltip>
-                                                                        <id>4</id>
-                                                                    </Output>
-                                                                </Box>
-                                                                <Box>
-                                                                    <name>processList</name>
-                                                                    <robot></robot>
-                                                                    <id>2</id>
-                                                                    <tooltip>This box will process the list. It will return a mark ID if at least one has been detected, or the noMark output if no mark has been detected. &#x0A;Note that the ID output will only be stimulated once, as long as the ID does not change. It allows a very easy integration from the upper level.</tooltip>
-                                                                    <bitmap_expanded>1</bitmap_expanded>
-                                                                    <Bitmaps>
-                                                                        <bitmap>media/images/box/interaction/uramark.png</bitmap>
-                                                                    </Bitmaps>
-                                                                    <plugin></plugin>
-                                                                    <x>332</x>
-                                                                    <y>94</y>
-                                                                    <script>
-                                                                        <content>
-                                                                            <![CDATA[class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self)
-        
-    def onLoad(self):
-        self.nNumLastDetected = -1;
-        
-    def onUnload(self):
-        #puts code for box cleanup here
-        pass
-
-    def onInput_onStart(self, p):
-        if(len(p) == 0):
-            self.nNumLastDetected = -1
-            self.onNoMark();
-        else:
-            if(self.nNumLastDetected != p[0]):
-                #only stimulate output if a mark wasn't detected before !
-                self.nNumLastDetected = p[0]
-                self.onMarkDetected( self.nNumLastDetected )
-            
-    def onInput_onStop(self):
-        pass]]>
-</content>
-                                                                        <language>4</language>
-                                                                    </script>
-                                                                    <Input>
-                                                                        <name>onLoad</name>
-                                                                        <type>1</type>
-                                                                        <type_size>1</type_size>
-                                                                        <nature>0</nature>
-                                                                        <inner>1</inner>
-                                                                        <tooltip>Signal sent when diagram is loaded.</tooltip>
-                                                                        <id>1</id>
-                                                                    </Input>
-                                                                    <Input>
-                                                                        <name>onStart</name>
-                                                                        <type>0</type>
-                                                                        <type_size>1</type_size>
-                                                                        <nature>2</nature>
-                                                                        <inner>0</inner>
-                                                                        <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
-                                                                        <id>2</id>
-                                                                    </Input>
-                                                                    <Input>
-                                                                        <name>onStop</name>
-                                                                        <type>1</type>
-                                                                        <type_size>1</type_size>
-                                                                        <nature>3</nature>
-                                                                        <inner>0</inner>
-                                                                        <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
-                                                                        <id>3</id>
-                                                                    </Input>
-                                                                    <Output>
-                                                                        <name>onMarkDetected</name>
-                                                                        <type>2</type>
-                                                                        <type_size>1</type_size>
-                                                                        <nature>2</nature>
-                                                                        <inner>0</inner>
-                                                                        <tooltip>a mark has been detected !&#x0A;Send the mark&apos;s number !</tooltip>
-                                                                        <id>4</id>
-                                                                    </Output>
-                                                                    <Output>
-                                                                        <name>onNoMark</name>
-                                                                        <type>1</type>
-                                                                        <type_size>1</type_size>
-                                                                        <nature>2</nature>
-                                                                        <inner>0</inner>
-                                                                        <tooltip>No mark detected :-(</tooltip>
-                                                                        <id>5</id>
-                                                                    </Output>
-                                                                </Box>
-                                                                <Link>
-                                                                    <inputowner>0</inputowner>
-                                                                    <indexofinput>7</indexofinput>
-                                                                    <outputowner>2</outputowner>
-                                                                    <indexofoutput>5</indexofoutput>
-                                                                </Link>
-                                                                <Link>
-                                                                    <inputowner>0</inputowner>
-                                                                    <indexofinput>6</indexofinput>
-                                                                    <outputowner>2</outputowner>
-                                                                    <indexofoutput>4</indexofoutput>
-                                                                </Link>
-                                                                <Link>
-                                                                    <inputowner>1</inputowner>
-                                                                    <indexofinput>2</indexofinput>
-                                                                    <outputowner>0</outputowner>
-                                                                    <indexofoutput>4</indexofoutput>
-                                                                </Link>
-                                                                <Link>
-                                                                    <inputowner>2</inputowner>
-                                                                    <indexofinput>2</indexofinput>
-                                                                    <outputowner>1</outputowner>
-                                                                    <indexofoutput>4</indexofoutput>
-                                                                </Link>
-                                                            </Diagram>
-                                                        </BehaviorKeyframe>
-                                                    </BehaviorLayer>
-                                                    <ActuatorList />
-                                                </Timeline>
-                                            </Box>
-                                            <Box>
-                                                <name>DetecteMark</name>
-                                                <robot></robot>
-                                                <id>2</id>
-                                                <tooltip>Enter tooltip here</tooltip>
-                                                <bitmap_expanded>1</bitmap_expanded>
-                                                <Bitmaps>
-                                                    <bitmap>media/images/box/box-diagram.png</bitmap>
-                                                </Bitmaps>
-                                                <plugin></plugin>
-                                                <x>408</x>
-                                                <y>33</y>
-                                                <script>
-                                                    <content>
-                                                        <![CDATA[class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self)
-        self.loop = True
-        self.miss = 0
-    def onLoad(self):
-        #~ puts code for box initialization here
-        pass
-
-    def onUnload(self):
-        #~ puts code for box cleanup here
-        self.loop = False
-
-    def onInput_onStart(self):
-        time.sleep(1)
-        while self.loop:
-           self.log(self.miss)
-           self.log(ALMemory.getData("LandmarkDetected", 0))
-           time.sleep(0.1)
-           if len(ALMemory.getData("LandmarkDetected", 0)) == 0:
-               self.miss = self.miss + 1
-           else:
-               self.miss = 0
-           if self.miss == 10:
-               break
-  
-        self.log("STOP IT")
-        self.onStopped()
-
-    def onInput_onStop(self):
-        self.onUnload() #~ it is recommanded to call onUnload of this box in a onStop method, as the code written in onUnload is used to stop the box as well
-        pass
-
-    def onInput_markDetect(self, p):
-        pass]]>
-</content>
-                                                    <language>4</language>
-                                                </script>
-                                                <Input>
-                                                    <name>onLoad</name>
-                                                    <type>1</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>0</nature>
-                                                    <inner>1</inner>
-                                                    <tooltip>Signal sent when diagram is loaded.</tooltip>
-                                                    <id>1</id>
-                                                </Input>
-                                                <Input>
-                                                    <name>onStart</name>
-                                                    <type>1</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>2</nature>
-                                                    <inner>0</inner>
-                                                    <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
-                                                    <id>2</id>
-                                                </Input>
-                                                <Input>
-                                                    <name>onStop</name>
-                                                    <type>1</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>3</nature>
-                                                    <inner>0</inner>
-                                                    <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
-                                                    <id>3</id>
-                                                </Input>
-                                                <Output>
-                                                    <name>onStopped</name>
-                                                    <type>1</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>1</nature>
-                                                    <inner>0</inner>
-                                                    <tooltip>Signal sent when box behavior is finished.</tooltip>
-                                                    <id>4</id>
-                                                </Output>
-                                            </Box>
-                                            <Box>
-                                                <name>Enter name here</name>
-                                                <robot></robot>
-                                                <id>3</id>
-                                                <tooltip>Enter tooltip here</tooltip>
-                                                <bitmap_expanded>1</bitmap_expanded>
-                                                <Bitmaps>
-                                                    <bitmap>media/images/box/box-diagram.png</bitmap>
-                                                </Bitmaps>
-                                                <plugin></plugin>
-                                                <x>450</x>
-                                                <y>82</y>
-                                                <script>
-                                                    <content>
-                                                        <![CDATA[class MyClass(GeneratedClass):
-    def __init__(self):
-        GeneratedClass.__init__(self)
-
-
-    def onLoad(self):
-        #~ puts code for box initialization here
-        pass
-
-    def onUnload(self):
-        #~ puts code for box cleanup here
-        pass
-
-    def onInput_onStart(self):
-       self.log("TITI")
-       self.log(str(ALMemory.getData("LandmarkDetected", 0)))
-       while len(ALMemory.getData("LandmarkDetected", 0))==0 or not (-0.2>ALMemory.getData("LandmarkDetected", 0)[1][0][0][1]>0.2):
-          if len(ALMemory.getData("LandmarkDetected", 0)) != 0:
-              self.log(str(ALMemory.getData("LandmarkDetected", 0)[1][0][0][1]))
-          self.log("Youou")
-          ALMotion.changeAngles("HeadYaw",-0.25,0.1)
-       self.log("OK")
-
-        
-
-    def onInput_onStop(self):
-        self.onUnload() #~ it is usually a good idea to call onUnload of this box in a onStop method, as the code written in onUnload is used to finish the working of the box as well
-        pass]]>
-</content>
-                                                    <language>4</language>
-                                                </script>
-                                                <Input>
-                                                    <name>onLoad</name>
-                                                    <type>1</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>0</nature>
-                                                    <inner>1</inner>
-                                                    <tooltip>Signal sent when diagram is loaded.</tooltip>
-                                                    <id>1</id>
-                                                </Input>
-                                                <Input>
-                                                    <name>onStart</name>
-                                                    <type>1</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>2</nature>
-                                                    <inner>0</inner>
-                                                    <tooltip>Box behavior starts when a signal is received on this input.</tooltip>
-                                                    <id>2</id>
-                                                </Input>
-                                                <Input>
-                                                    <name>onStop</name>
-                                                    <type>1</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>3</nature>
-                                                    <inner>0</inner>
-                                                    <tooltip>Box behavior stops when a signal is received on this input.</tooltip>
-                                                    <id>3</id>
-                                                </Input>
-                                                <Input>
-                                                    <name>onDetect</name>
-                                                    <type>0</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>4</nature>
-                                                    <stm_value_name>extractors/allandmarkdetection/landmarkdetected</stm_value_name>
-                                                    <inner>1</inner>
-                                                    <tooltip></tooltip>
-                                                    <id>4</id>
-                                                </Input>
-                                                <Input>
-                                                    <name>extractors/allandmarkdetection/landmarkdetected</name>
-                                                    <type>0</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>4</nature>
-                                                    <stm_value_name>extractors/allandmarkdetection/landmarkdetected</stm_value_name>
-                                                    <inner>1</inner>
-                                                    <tooltip>Connected to ALMemory. Will be stimulated every time the value subscribed to changes, respecting the refresh period.</tooltip>
-                                                    <id>5</id>
-                                                </Input>
-                                                <Output>
-                                                    <name>onStopped</name>
-                                                    <type>1</type>
-                                                    <type_size>1</type_size>
-                                                    <nature>1</nature>
-                                                    <inner>0</inner>
-                                                    <tooltip>Signal sent when box behavior is finished.</tooltip>
-                                                    <id>6</id>
-                                                </Output>
-                                            </Box>
-                                        </Diagram>
-                                    </BehaviorKeyframe>
-                                </BehaviorLayer>
-                                <ActuatorList />
-                            </Timeline>
-                        </Box>
-                        <Box>
                             <name>WalkTo</name>
                             <robot></robot>
-                            <id>14</id>
+                            <id>15</id>
                             <tooltip>This Box is for make NAO walk to a point relative to his current location &#x0A;&#x0A;Box Extra Parameter the new position:&#x0A;X for front/rear motion (metre)&#x0A;Y for lateral motion (meter)&#x0A;Theta for rotation (radian)&#x0A;&#x0A;Note:&#x0A;Default is walk straight 20cm</tooltip>
                             <bitmap_expanded>1</bitmap_expanded>
                             <Bitmaps>
@@ -13941,99 +14032,8 @@ class MyClass(GeneratedClass):
                                 <id>10</id>
                             </Parameter>
                         </Box>
-                        <Box>
-                            <name>Wait</name>
-                            <robot></robot>
-                            <id>15</id>
-                            <tooltip>The wait that can be stopped immediately and reset at any time.&#x0A;&#x0A;Stopping the box won&apos;t output a signal.&#x0A;*** ref box in: ./4_localize/Time/Wait/ExampleWait.xar ***&#x0A;*** last modification date(svn): Version it! ***</tooltip>
-                            <bitmap_expanded>1</bitmap_expanded>
-                            <Bitmaps>
-                                <bitmap>media/images/box/wait.png</bitmap>
-                            </Bitmaps>
-                            <plugin></plugin>
-                            <x>421</x>
-                            <y>361</y>
-                            <script>
-                                <content>
-                                    <![CDATA[import threading # opkg install python-threading
-class MyClass(GeneratedClass):
-  def __init__(self):
-    GeneratedClass.__init__(self)
-    self.tb = False;
-  
-  def onUnload(self):
-    self.onInput_onStop();
-    
-  def triggerOutput( self, rPeriod = 1 ):
-    self.timerOutput();
-    self.onInput_onStop(); # to clean everything
-  
-  def startTimer( self, rPeriod = 1 ):
-    if( self.tb ):
-      self.tb.cancel();
-    self.tb = threading.Timer( rPeriod, self.triggerOutput, [rPeriod] );
-    self.tb.start();
-
-  def onInput_onStart(self):
-    self.startTimer( self.getParameter("timeout") );
-  
-  def onInput_onStop(self):
-    if( self.tb ):
-      self.tb.cancel();
-      self.tb = False;]]>
-</content>
-                                <language>4</language>
-                            </script>
-                            <Input>
-                                <name>onLoad</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>0</nature>
-                                <inner>1</inner>
-                                <tooltip>Signal sent when diagram is loaded.</tooltip>
-                                <id>1</id>
-                            </Input>
-                            <Input>
-                                <name>onStart</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>2</nature>
-                                <inner>0</inner>
-                                <tooltip>Start the timer with a specified period value (in seconds)</tooltip>
-                                <id>2</id>
-                            </Input>
-                            <Input>
-                                <name>onStop</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>3</nature>
-                                <inner>0</inner>
-                                <tooltip>Stop the timer</tooltip>
-                                <id>3</id>
-                            </Input>
-                            <Output>
-                                <name>timerOutput</name>
-                                <type>1</type>
-                                <type_size>1</type_size>
-                                <nature>2</nature>
-                                <inner>0</inner>
-                                <tooltip>send a bang after a certain amount of time.&#x0A;Warning: not outputted if stopped before time lapse.</tooltip>
-                                <id>4</id>
-                            </Output>
-                            <Parameter>
-                                <name>timeout</name>
-                                <inherits_from_parent>0</inherits_from_parent>
-                                <content_type>2</content_type>
-                                <value>5</value>
-                                <default_value>1</default_value>
-                                <min>0</min>
-                                <max>5000</max>
-                                <tooltip>After how many seconds the box will timeout and stimulate its ouput.</tooltip>
-                                <id>5</id>
-                            </Parameter>
-                        </Box>
                         <Link>
-                            <inputowner>6</inputowner>
+                            <inputowner>5</inputowner>
                             <indexofinput>3</indexofinput>
                             <outputowner>0</outputowner>
                             <indexofoutput>2</indexofoutput>
@@ -14045,13 +14045,13 @@ class MyClass(GeneratedClass):
                             <indexofoutput>4</indexofoutput>
                         </Link>
                         <Link>
-                            <inputowner>14</inputowner>
+                            <inputowner>15</inputowner>
                             <indexofinput>2</indexofinput>
                             <outputowner>10</outputowner>
                             <indexofoutput>4</indexofoutput>
                         </Link>
                         <Link>
-                            <inputowner>8</inputowner>
+                            <inputowner>6</inputowner>
                             <indexofinput>2</indexofinput>
                             <outputowner>3</outputowner>
                             <indexofoutput>4</indexofoutput>
@@ -14065,13 +14065,13 @@ class MyClass(GeneratedClass):
                         <Link>
                             <inputowner>4</inputowner>
                             <indexofinput>2</indexofinput>
-                            <outputowner>12</outputowner>
+                            <outputowner>14</outputowner>
                             <indexofoutput>4</indexofoutput>
                         </Link>
                         <Link>
                             <inputowner>3</inputowner>
                             <indexofinput>2</indexofinput>
-                            <outputowner>14</outputowner>
+                            <outputowner>15</outputowner>
                             <indexofoutput>4</indexofoutput>
                         </Link>
                         <Link>
@@ -14099,27 +14099,27 @@ class MyClass(GeneratedClass):
                             <indexofoutput>2</indexofoutput>
                         </Link>
                         <Link>
-                            <inputowner>1</inputowner>
+                            <inputowner>8</inputowner>
+                            <indexofinput>2</indexofinput>
+                            <outputowner>6</outputowner>
+                            <indexofoutput>4</indexofoutput>
+                        </Link>
+                        <Link>
+                            <inputowner>14</inputowner>
+                            <indexofinput>2</indexofinput>
+                            <outputowner>12</outputowner>
+                            <indexofoutput>4</indexofoutput>
+                        </Link>
+                        <Link>
+                            <inputowner>8</inputowner>
                             <indexofinput>2</indexofinput>
                             <outputowner>0</outputowner>
                             <indexofoutput>2</indexofoutput>
                         </Link>
                         <Link>
-                            <inputowner>5</inputowner>
-                            <indexofinput>2</indexofinput>
-                            <outputowner>8</outputowner>
-                            <indexofoutput>4</indexofoutput>
-                        </Link>
-                        <Link>
-                            <inputowner>15</inputowner>
-                            <indexofinput>2</indexofinput>
-                            <outputowner>5</outputowner>
-                            <indexofoutput>4</indexofoutput>
-                        </Link>
-                        <Link>
                             <inputowner>12</inputowner>
                             <indexofinput>2</indexofinput>
-                            <outputowner>15</outputowner>
+                            <outputowner>8</outputowner>
                             <indexofoutput>4</indexofoutput>
                         </Link>
                     </Diagram>

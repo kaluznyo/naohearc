@@ -69,3 +69,8 @@ Mercredi 16 Juin :
 
 J'ai repris le mouvement de positionement, lorsque le robot se baisse, pour avoir plus d'angle. Il arrive a prendre la boulle de plastique, le probléme est toujours que l'objet est trop glissant, mais en le remendant vers la jambe, cela peut fonctioner.
 
+Jeudi 17 Juin
+
+Je découvre que un probléme de chaleur est bien présent et rend le mouvement de rammasage, instable, car le moteur du pied se coupe, le probléme doit aussi causé la marche non droite. J'ai finalisé le mouvement du ramassage, je n'utilise que la déviation d'angle X , sur des valeur trop loin, cela ne marche plus, plusieur erreur doivent se mettre ensemble, pour faire une grosse erreur, la main n'est donc pas au bonne endroit. L'objectife serrait mtn de savoir qu'elle soit les valeur du delta x pour lesquelle le robot peu, et ne se trompe pas, on pourrais donc réaliser une action de réctification si le robot n'est pas bien positioner.
+PV avec amiguet. La version de détéction des mark, ne marche plus tres bien, je vais garder cette version, et essayer de réaliser la méme choses avec la détéction d'objet directement. et trouvé la bonne position au moment de se pencher. Je vais aussi chercher a trouvé un mouvement possible pour ramaser un objet a 2 main
+

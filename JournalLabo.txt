@@ -74,3 +74,30 @@ Jeudi 17 Juin
 Je découvre que un probléme de chaleur est bien présent et rend le mouvement de rammasage, instable, car le moteur du pied se coupe, le probléme doit aussi causé la marche non droite. J'ai finalisé le mouvement du ramassage, je n'utilise que la déviation d'angle X , sur des valeur trop loin, cela ne marche plus, plusieur erreur doivent se mettre ensemble, pour faire une grosse erreur, la main n'est donc pas au bonne endroit. L'objectife serrait mtn de savoir qu'elle soit les valeur du delta x pour lesquelle le robot peu, et ne se trompe pas, on pourrais donc réaliser une action de réctification si le robot n'est pas bien positioner.
 PV avec amiguet. La version de détéction des mark, ne marche plus tres bien, je vais garder cette version, et essayer de réaliser la méme choses avec la détéction d'objet directement. et trouvé la bonne position au moment de se pencher. Je vais aussi chercher a trouvé un mouvement possible pour ramaser un objet a 2 main
 
+Vendredi 18 Juin
+
+Remmplacement de la detection des Nao Mark par des objet. Ceci apporte des probléme si l'objet ont les méme couleurs. j'ai refactorisé le code python, et cela fonctionne, il faut mtn trouvé comment ce placer par rapport a l'objet pour le ramaser
+
+Lundi  21 juin :
+
+Pas la
+
+Mardi 22 juin :
+
+Je fait des pas de coté pour pouvoir prendre l'objet en main, mais cela reste imprécis. J'attaque le mouvement a 2 mains. je réussie a trouvé le mouvement pour se pencher et se relever il arrive alors a soulever une cannete, si elle est bien placé. Le probléme c'est que la camera ne peut plus étre utilisé, car trop proche, et la cannete prend toute la vision. L'autre probléme a été de revoire le mouvmenet pour se lever, qui doit tenir conte du centre de gravité changé a cause de la cannete et des pras en avant. on met donc les bras un peu en arriere
+
+Mercredi 23 juin : J'ai revu le module de vision afin de lui passé en paramétre la couleur rechercher, j'ai aussi modifié le code pour que, quand on sais qu'elle objet le robot doit chercher, on précise en mettan dans un registre du robot ALMemory, si le robot doit utiliser les deux bras, ou 1 bras.
+
+Jeudi 24 Juin
+
+Réfléxion sur les "contre messure" il faudrait placé le robot  en position de regard, au dessu de l'objet, et tourner/avancer, selon la bonne place. on se remet ainsi a une configuration connue. Le probléme est que le module Opencv retourne des valeurs a 3 degrés pres, j'ai donc essayer de réduire la marge, ainsi qu'augementer la résolution. Il faut encore que j'étudie la question. J'ai créer la position de regard. des probléme de température tjr ..
+Je sauvegarde les images pour voir ou il situe le centre de l'objet
+
+Vendredi
+
+Test de plusieur idée pour les contres messure... récupération de la meilleur place de l'objet pour le geste a une main
+
+Lundi 28 juin : 
+
+Calcule pour réaliser le placement de précision, on doit se positioner en x et y afin que la camera voye -10 -7,5. Pour cela j'ai calculé l'angle et la hauter et la distance entre camera et objet, pour trouvé un angle de 6 degrés de base, pour un objet a 0,0. Piste pour le calcule: Calculé la distance entre l'angle max, et la distance entre l'angle actuelle. Probléme, le déplacement est préci au cm pres. peut étre le réaliser plusieur fois. 
+

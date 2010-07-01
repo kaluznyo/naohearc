@@ -101,3 +101,13 @@ Lundi 28 juin :
 
 Calcule pour réaliser le placement de précision, on doit se positioner en x et y afin que la camera voye -10 -7,5. Pour cela j'ai calculé l'angle et la hauter et la distance entre camera et objet, pour trouvé un angle de 6 degrés de base, pour un objet a 0,0. Piste pour le calcule: Calculé la distance entre l'angle max, et la distance entre l'angle actuelle. Probléme, le déplacement est préci au cm pres. peut étre le réaliser plusieur fois. 
 
+Mardi 29 Juin : 
+
+J'ai implementé les calcule de hier dans le worflow, j'ai remarqué qu'on perdait en précision entre le réglage n x et en y du au fait que le robot glisse la jambe pour se pencher. en faite il suffit de baissé juste la téte, cela laisseu n champs assé grand.Pour étre plus précis il faudrait peut étre réaliser la finision plusieur fois... l'incertitude vien de mes calcule, sur la taille entre le sol et la camera, ainsi que sur la valeur renvoyé par l'objet. mais aussi du mouvement de nao. J'ai demandé sur le forum comment évité le déviment abusé du robot.
+Refactorisation peut étre grace a un box et das al memory pour les constante
+Reste a rendre le tout plus préci, surtout sur les Y, et faire de méme pour le mouvement a 2 mains
+
+Mercredi 30 juin :
+
+ PV AMiguet . correction et théorisation formel pour la précision. Tentative de trouvé un moyen meilleur pour le geste a une mains, il demande trop de précision. J'envisage de le levé un peu plus et de changer le mouvement du bras. Je vais continuer de tenter avec le mouvement a 2 mains afin de faire en sorte qu'il soit plus précis
+

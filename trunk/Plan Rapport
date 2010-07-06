@@ -1,0 +1,38 @@
+Introduction
+
+Objectifs
+
+Partage du probléme
+
+Détéction de la Mark, le déplacement
+	- Solution Sans calcule
+	- Solution avec Calcule
+	
+Geste Rammassage 1 mains
+	- Construction du geste
+	- Probléme lié au géste
+	- Analyse d'image pour précision
+	
+Geste Rammasage à 2 mains
+	- Construction du Geste
+	- Probléme lié au géste
+	
+Positionement précis autour de la marque
+	- Probléme
+	
+Construction Générale du code
+
+Probléme Générale du robot 
+
+Création d'un module C++ pour le robot
+	-Library vs remote
+	-Binding Python
+	
+Traitement d'image
+	- Hapia
+	- Explication de l'algorithme
+	- Probléme de l'algorithme
+
+Résultat
+
+Conclusion

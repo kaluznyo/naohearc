@@ -123,3 +123,8 @@ Mercredi 30 juin :
  
  Début rapport, Fin de refactorisation de la logique des 2 mouvement. Tentative de réduire la température en réduisant la stiffness. Aucun résultat. Question, savoir ou mettre les constantes pour les mouvement. Refactorisation du mouvement a 2 mains.. encore.. Probléme du poignet qui n'est pa a la bonne position, il faut toujours trouvé une bonne valeurs, sur pour le ramassage.
 
+Mard 6 Juillet : 
+
+Le poignet droit du nao n'arrive plus a suivre les commande comme si il manquais de puissance.... post forum.
+J'ai refactorisé la recherche d'objet, afin que cela soit plus générique, j'ai fait en sorte que le robot cherche a 360 degrés et aussi avec la camera du haut. Probléme a résoudre, il est tout just assé prés, a voire si on doit re-éféctuer une recherche, ou alors trouvpé de meilleur disposition.
+Autre piste a étudié, le partage de classe, et d'héritage, et de méthode. Probléme module recherhc et aller , qui partage les méme méthode.  Onload et Onstart paraléle...

@@ -92,9 +92,8 @@ CvPoint GetCenter(IplImage * src)
       {
 	Center.x = -1;
 	Center.y = -1;
-	numOfMatchingPoints = -1;
       }
-      
+  	cout<<numOfMatchingPoints<<endl;
       return Center;
 }
 
@@ -263,7 +262,7 @@ vector<float> ObjectDetect::takePhoto(const float &R, const float &G, const floa
 
 
   uchar colorToFind[3] = {R,G,B};
-  uchar colorToFindTolerance[3] = {30.0,30.0,30.0};
+  uchar colorToFindTolerance[3] = {30.0,15.0,15.0};
   
   
   try
@@ -289,8 +288,16 @@ vector<float> ObjectDetect::takePhoto(const float &R, const float &G, const floa
     }
     
     //That cause a segmentation fail after some photo?
+   	 static int test = 1;
+   	 test++;
+   	 
+   	 char buffer [50];
+  
+   sprintf (buffer, "/home/nao/test%d.jpg", test);
+
+
      cvCircle(img,cvPoint(objectPoint.x,objectPoint.y),10,cvScalar(255,0,0,0),1,8,0);
-     cvSaveImage("home/nao/testTri.jpg",img);
+     cvSaveImage(buffer,img);
     
     //deallocation block
     cvReleaseImage(&img);

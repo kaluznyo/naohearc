@@ -5,24 +5,24 @@ Objectifs
 Partage du probléme
 
 Détéction de la Mark, le déplacement
-	- Solution Sans calcule
-	- Solution avec Calcule
+	- Solution sans calcul
+	- Solution avec Calcul
 	
-Geste Rammassage 1 mains
+Geste ramassage à 1 main
 	- Construction du geste
-	- Probléme lié au géste
+	- Problémes liés au géste
 	- Analyse d'image pour précision
 	
-Geste Rammasage à 2 mains
+Geste ramasage à 2 mains
 	- Construction du Geste
 	- Probléme lié au géste
 	
 Positionement précis autour de la marque
 	- Probléme
 	
-Construction Générale du code
+Construction générale du code
 
-Probléme Générale du robot 
+Probléme générale du robot 
 
 Création d'un module C++ pour le robot
 	-Library vs remote

@@ -135,3 +135,7 @@ Refactorisation fini du module de recherche . probléme avec des parasite, il fa
 	- Finir mouvement 2 mains
 	- Changer mouvement et finir 1 main (metre sur l'autre main)
 	- Vérification d'un process entier (et contre-mesure, vocale)
+
+Jeudi 8 juillet : 
+
+PV Amiguet. Amélioration du geste a 2 main, pour tenir compte du probléme de la main. Le module de recherche fin, se positione en x et y en méme temps. 

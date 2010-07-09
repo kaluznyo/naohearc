@@ -128,3 +128,10 @@ Mard 6 Juillet :
 Le poignet droit du nao n'arrive plus a suivre les commande comme si il manquais de puissance.... post forum.
 J'ai refactorisé la recherche d'objet, afin que cela soit plus générique, j'ai fait en sorte que le robot cherche a 360 degrés et aussi avec la camera du haut. Probléme a résoudre, il est tout just assé prés, a voire si on doit re-éféctuer une recherche, ou alors trouvpé de meilleur disposition.
 Autre piste a étudié, le partage de classe, et d'héritage, et de méthode. Probléme module recherhc et aller , qui partage les méme méthode.  Onload et Onstart paraléle...
+
+Mercredi 7 juillet :
+
+Refactorisation fini du module de recherche . probléme avec des parasite, il faut laissé une assé grande tolérance. petit probléme de calcule. résolue. Refactorisation pour gestion de la couleur (dictionary impossible avec ALValue) TODO 
+	- Finir mouvement 2 mains
+	- Changer mouvement et finir 1 main (metre sur l'autre main)
+	- Vérification d'un process entier (et contre-mesure, vocale)

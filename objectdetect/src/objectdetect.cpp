@@ -289,8 +289,8 @@ vector<float> ObjectDetect::takePhoto(const float &R, const float &G, const floa
     }
     
     //That cause a segmentation fail after some photo?
-    // cvCircle(img,cvPoint(objectPoint.x,objectPoint.y),10,cvScalar(255,0,0,0),1,8,0);
-     //cvSaveImage("/home/nao/test.jpg",img);
+     cvCircle(img,cvPoint(objectPoint.x,objectPoint.y),10,cvScalar(255,0,0,0),1,8,0);
+     cvSaveImage("home/nao/testTri.jpg",img);
     
     //deallocation block
     cvReleaseImage(&img);

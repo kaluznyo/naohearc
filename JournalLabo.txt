@@ -12,6 +12,7 @@ PV avec M. Amiguet, j'ai réparti le projet en plusieurs étapes. J'ai mise a jo
 
 Jeudi 27 Mai : 
 
+
 J'ai commencé à réaliser le processus afin que le robot avance jusque a une nao Mark au sol. La premiére partie se base uniquement sur la camera du bas, et il faut que la Mark soit dans le champs de vision. J'ai essayé d'utilisé les singaux, puis finalement j'ai utilisé un ALMemory pour chercher la valeur, le tout dans une boucle while. Il faut absolument pouvoir arreter cette boucle, si on met un while True, la boucle ne s'arrete jamais, méme si on arréte le programme, et tournera toujours, méme avec un autre programme. On arrete donc la boucle quand la Nao Mark est centré. Pour marcher jusque a la mark, on tourne la téte en fonction du positionement, tourné vers la gauche ou droite, une fois qu'on et en face, on récupére l'angle de la téte du Nao, et on éfféctue une rotation de nao avec cette angele. Une fois en face je l'ai fait avancé tant que Nao voie une mark. certaine fois la mark n'est plus detecté, pendant 1 secondes, c'est pourquois on vérifie que 3 fois de suite si la mark est vraiment plus la. Le robot s'arreéte envirosn sur la naoMark (un peu devant). 
 L'autre étapes consiste a faire regardé Nao dans son champs de vision (uniquement avec la téte), cette fois si je fait partire la téte du milieu, et si il ne voie rien directement, il tourne la téte vers la gauche, jusque au bout, si tjr rien n'est trouvé, on la tourne vers la droite, jsuque au bout. un probléme arrive lorsque que la téte est dans une diréction, je n'arrive plus a tourné la téte de l'autre coté. Pour ca je regarde si l'angle actuelle est presque au bout de l'angle max (2 rad). A priori le robot n'a pas le temps de finir son mouvement de rotation (vu que c'est dans une boucle while), alors que je lui demande déja l'angle, pour le teste, du coup le teste est faux il change l'angle, mais n'effectue pas encore la rotation, car l'autre n'est pas fini. J'ai trouvé une piste, il faut mettre un sleep pour attendre que le mouvement finisse. Il me reste a faire en sorte que le mouvement soit optimal et le plus rapide possible. Et aussi qu'il ne tourne la téte totalement que une fois.
 
@@ -139,3 +140,5 @@ Refactorisation fini du module de recherche . probléme avec des parasite, il fa
 Jeudi 8 juillet : 
 
 PV Amiguet. Amélioration du geste a 2 main, pour tenir compte du probléme de la main. Le module de recherche fin, se positione en x et y en méme temps. 
+Refactorisation du mouvement a 1 main. Pour inverser le mouvement sur le coté gauche (éviter le probléme du moteur faible de la main droite)
+Commentaire et netttoyage du code
